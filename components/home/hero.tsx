@@ -7,12 +7,11 @@ import fastdev from '@/public/images/fast-dev.svg';
 import responsive_first from '@/public/images/responsive-first-design.svg';
 import star from '@/public/images/star.svg';
 import { Github, Instagram } from 'lucide-react';
-import Link from 'next/link';
 import { Button } from '../ui/button';
 
 export default function Hero() {
   return (
-    <section className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <section className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 gap-4 relative z-20">
       <div className="col-span-1 flex flex-col justify-center gap-8">
         <div className="w-fit h-fit p-1.5 rounded-l-3xl bg-linear-to-r from-emerald-700/70 to-transparent">
           <div className="p-1 px-3 rounded-l-[16.42px] bg-linear-to-r from-emerald-700/70 to-transparent text-xs xl:text-sm flex items-center pr-16 ">
@@ -23,7 +22,7 @@ export default function Hero() {
 
         <div className="max-w-120 grid gap-8">
           <div className="grid gap-7">
-            <h1 className="text-5xl font-bold">I'm Cozy</h1>
+            <h1 className="text-5xl 2xl:text-7xl font-bold">I'm Cozy</h1>
             <p className="">
               I craft premium websites for creators, entrepreneurs and startups
               who want to convert clients, drive serious revenue and stand out
@@ -31,25 +30,40 @@ export default function Hero() {
             </p>
           </div>
           <div className="flex gap-4">
-            <Button variant={'outline'}>Learn How</Button>
-            <Button>More about me</Button>
+            <Button variant={'outline'} size={'lg'}>
+              Learn How
+            </Button>
+            <Button size={'lg'}>More about me</Button>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="https://github.com/oendnsk675" target="_blank">
+            <a
+              href="https://github.com/oendnsk675"
+              target="_blank"
+              className="hover:opacity-75 transition-all duration-150"
+            >
               <Github size={20} strokeWidth={0.8} />
-            </Link>
-            <Link href="https://github.com/oendnsk675" target="_blank">
+            </a>
+            <a
+              href="https://github.com/oendnsk675"
+              target="_blank"
+              className="hover:opacity-75 transition-all duration-150"
+            >
               <Image src={dailyDev} alt="Logo Daily Dev" />
-            </Link>
-            <Link
+            </a>
+            <a
               href="https://bsky.app/profile/oslab19.bsky.social"
               target="_blank"
+              className="hover:opacity-75 transition-all duration-150"
             >
               <Image src={bsky} alt="Logo Bsky" />
-            </Link>
-            <Link href="https://github.com/oendnsk675" target="_blank">
+            </a>
+            <a
+              href="https://github.com/oendnsk675"
+              target="_blank"
+              className="hover:opacity-75 transition-all duration-150"
+            >
               <Instagram size={20} strokeWidth={0.8} />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
