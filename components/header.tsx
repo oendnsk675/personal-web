@@ -63,7 +63,6 @@ export default function Header() {
 
   return (
     <header className="fixed flex justify-center w-full left-0 bottom-4 md:top-4 z-50 h-fit">
-      {/* <FloatingDock desktopClassName="" items={links} /> */}
       <ul className="flex items-center gap-4 mx-auto h-16 rounded-xl bg-gray-50/10 px-4 dark:bg-neutral-500/10 backdrop-blur border">
         <Link
           href={'/'}
