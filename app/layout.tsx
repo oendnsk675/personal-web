@@ -1,3 +1,5 @@
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -25,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased block xl:flex xl:flex-col items-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased block xl:flex xl:flex-col items-center overflow-x-hidden`}
       >
-        <div className="w-full xl:max-w-6xl">{children}</div>
+        <Header />
+        <div className="w-full xl:max-w-6xl px-4 lg:px-0">{children}</div>
+        <Footer />
       </body>
     </html>
   );

@@ -1,37 +1,42 @@
-import Image from 'next/image';
+import { Book, BriefcaseBusiness, House, TerminalIcon } from 'lucide-react';
+import { FloatingDock } from './ui/floating-dock';
 
 export default function Header() {
-  return (
-    <header className="fixed flex justify-center w-full left-0 top-4">
-      <nav className="w-full xl:w-fit flex items-center bg-slate-500/5 justify-center gap-8 px-6 p-3 border rounded">
-        <div className="flex items-center">
-          <div className="flex gap-1 items-center">
-            <Image
-              src="/vercel.svg"
-              alt="Logo"
-              width={16}
-              height={16}
-              className="mr-2"
-            />
-            <h1 className="text-lg font-bold">OsLab</h1>
-          </div>
-        </div>
+  const links = [
+    {
+      title: 'Home',
+      icon: (
+        <House className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: '#',
+    },
 
-        <ul className="flex items-center gap-8">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Projects</a>
-          </li>
-          <li>
-            <a href="#">Notes</a>
-          </li>
-        </ul>
-      </nav>
+    {
+      title: 'Blogs',
+      icon: (
+        <TerminalIcon className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: '#',
+    },
+    {
+      title: 'Projects',
+      icon: (
+        <BriefcaseBusiness className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: '#',
+    },
+    {
+      title: 'Notes',
+      icon: (
+        <Book className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: '#',
+    },
+  ];
+
+  return (
+    <header className="fixed flex justify-center w-full left-0 bottom-4 md:top-4 z-50">
+      <FloatingDock desktopClassName="" items={links} />
     </header>
   );
 }
