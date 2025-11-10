@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { Bolt } from 'lucide-react';
 import {
   AnimatePresence,
   MotionValue,
@@ -11,6 +12,14 @@ import {
 } from 'motion/react';
 
 import { useRef, useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from './dropdown-menu';
 
 export const FloatingDock = ({
   items,
@@ -34,16 +43,45 @@ const FloatingDockDesktop = ({
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
+
+  let themeItem = {
+    title: 'Theme',
+    icon: (
+      <Bolt className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+    ),
+    href: '#',
+  };
   return (
     <motion.div
       className={cn(
-        'mx-auto h-16 items-end gap-4 rounded-xl bg-gray-50/10 px-4 pb-3 flex dark:bg-neutral-500/10 backdrop-blur',
+        'mx-auto h-16 items-center gap-4 rounded-xl bg-gray-50/10 px-4 flex dark:bg-neutral-500/10 backdrop-blur border ',
         className
       )}
     >
+      <div className="flex justify-center items-center relative aspect-square rounded-xl bg-linear-30 from-emerald-800/30 via-emerald-500/30 to-emerald-800/20 border border-emerald-800 w-10 h-10">
+        <h1 className="font-extrabold text-2xl">S</h1>
+      </div>
+      <div className="h-full py-2 mx-1">
+        <hr className="h-full border opacity-70" />
+      </div>
       {items.map((item) => (
         <IconContainer mouseX={mouseX} key={item.title} {...item} />
       ))}
+      <div className="h-full py-2 mx-1">
+        <hr className="h-full border opacity-70" />
+      </div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <IconContainer mouseX={mouseX} {...themeItem} />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56" align="start">
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuItem>
+            Log out
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </motion.div>
   );
 };
