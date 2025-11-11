@@ -136,3 +136,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  cursor: url('/cursor-default.svg'), pointer;
+}
+
+.cursor-custom:hover {
+  cursor: url('/cursor-hover.svg'), pointer !important;
+}

@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import { BackgroundRippleEffect } from '@/components/ui/background-ripple-effect';
 import bsky from '@/public/icons/bsky.svg';
 import dailyDev from '@/public/icons/daily-dev.svg';
-import fastdev from '@/public/images/fast-dev.svg';
-import responsive_first from '@/public/images/responsive-first-design.svg';
-import star from '@/public/images/star.svg';
 import { Github, Instagram } from 'lucide-react';
 import { Button } from '../ui/button';
+import FirstLoad from './grid-hero/first-load';
+import FirstResponsiveGrid from './grid-hero/first-responsive-grid';
+import SeoGrid from './grid-hero/seo-grid';
+import SingleTouchpoint from './grid-hero/single-touchpoint';
 
 export default function Hero() {
   return (
@@ -39,28 +39,28 @@ export default function Hero() {
             <a
               href="https://github.com/oendnsk675"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150"
+              className="hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Github size={20} strokeWidth={0.8} />
             </a>
             <a
-              href="https://github.com/oendnsk675"
+              href="https://app.daily.dev/sayidinaahmadalqososyi"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150"
+              className="hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={dailyDev} alt="Logo Daily Dev" />
             </a>
             <a
               href="https://bsky.app/profile/oslab19.bsky.social"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150"
+              className="hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={bsky} alt="Logo Bsky" />
             </a>
             <a
-              href="https://github.com/oendnsk675"
+              href="https://www.instagram.com/oslab19/"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150"
+              className="hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Instagram size={20} strokeWidth={0.8} />
             </a>
@@ -69,76 +69,10 @@ export default function Hero() {
       </div>
       <div className="hidden col-span-1 lg:flex flex-col justify-center">
         <div className="grid grid-cols-6 gap-2.5">
-          <div className="col-span-4 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% relative p-4 flex justify-center">
-            <p className="text-center text-pretty">
-              Bespoke, <br /> responsive-first design
-            </p>
-            <div className="absolute bottom-0 right-0 w-full flex justify-center">
-              <Image src={responsive_first} alt="Logo" />
-            </div>
-          </div>
-          <div className="col-span-2 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% relative p-4 flex justify-center items-end overflow-hidden">
-            <BackgroundRippleEffect cellSize={20} />
-
-            <div className="z-10 absolute top-0 left-0 h-full w-full flex justify-center items-center">
-              <h1 className="text-center text-5xl font-bold text-emerald-500/5 [-webkit-text-stroke:0.5px_white]">
-                SEO
-              </h1>
-            </div>
-            <p className="text-center text-pretty">
-              No more hiding. Specialist SEO.
-            </p>
-          </div>
-          <div className="col-span-2 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% p-4 relative">
-            <div className="absolute inset-0 w-full h-full flex justify-center items-center">
-              <Image src={fastdev} alt="fast-dev.svg" />
-            </div>
-            <div className="flex justify-end">
-              <p>
-                Fast dev. <br /> Fast loads.
-              </p>
-            </div>
-          </div>
-          <div className="col-span-4 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% relative p-4 overflow-hidden">
-            <Image
-              src={star}
-              alt="fast-dev.svg"
-              className="absolute top-11 right-12 "
-            />
-            <Image
-              src="/images/moon-1.svg"
-              width={22}
-              height={22}
-              alt="fast-dev.svg"
-              className="absolute top-2.5 right-4 "
-            />
-            <Image
-              src="/images/moon-2.svg"
-              width={32}
-              height={32}
-              alt="fast-dev.svg"
-              className="absolute top-10 right-1/2 "
-            />
-            <Image
-              src="/images/moon-3.svg"
-              width={107}
-              height={107}
-              alt="fast-dev.svg"
-              className="absolute bottom-4 left-4"
-            />
-            <Image
-              src="/images/moon-3.svg"
-              width={188}
-              height={188}
-              alt="fast-dev.svg"
-              className="absolute -bottom-16 -right-12"
-            />
-            <div className="">
-              <p>
-                Single touchpoint. <br /> Genuine collaboration.
-              </p>
-            </div>
-          </div>
+          <FirstResponsiveGrid />
+          <SeoGrid />
+          <FirstLoad />
+          <SingleTouchpoint />
         </div>
       </div>
     </section>
