@@ -13,9 +13,9 @@ export default function Hero() {
   return (
     <section className="w-full h-screen grid grid-cols-1 lg:grid-cols-2 gap-4 relative z-20">
       <div className="col-span-1 flex flex-col justify-center gap-8">
-        <div className="w-fit h-fit p-1.5 rounded-l-3xl bg-linear-to-r from-emerald-700/70 to-transparent">
-          <div className="p-1 px-3 rounded-l-[16.42px] bg-linear-to-r from-emerald-700/70 to-transparent text-xs xl:text-sm flex items-center pr-16 ">
-            <span className="w-2 h-2 rounded-full bg-[#22C55E] mr-2"></span>
+        <div className="w-fit h-fit p-1.5 rounded-l-3xl bg-linear-to-r from-emerald-700/50 to-transparent">
+          <div className="p-1 px-3 rounded-l-[16.42px] bg-linear-to-r from-emerald-700/50 to-transparent text-xs xl:text-sm flex items-center pr-16 ">
+            <span className="w-2 h-2 rounded-full bg-emerald-300 mr-2"></span>
             <span>Open to work</span>
           </div>
         </div>
