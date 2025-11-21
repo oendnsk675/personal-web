@@ -1,3 +1,4 @@
+import getArticleMetadata from '@/lib/getArticleMetadata';
 import ButtonSeeMore from '../button-see-more';
 import CardBlog from '../card-blog';
 import Fancytext from '../fancy-text';
@@ -5,6 +6,11 @@ import ComplexThings from '../pattern/complex-things';
 import DashArrow from '../pattern/dash-arrow';
 
 export default function Blogs() {
+  const articleMetadata = getArticleMetadata('articles');
+  const sortedArticles = articleMetadata.sort(
+    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  
   return (
     <section className="w-full mt-36 mb-20 relative">
       <div className="w-full flex flex-col items-center gap-8 mb-32">
@@ -23,8 +29,8 @@ export default function Blogs() {
           <DashArrow className="mt-20" />
         </div>
 
-        {[1, 2, 3].map((item) => (
-          <CardBlog key={item} />
+        {sortedArticles?.map((content, item) => (
+          <CardBlog content={content} key={item} />
         ))}
         <ButtonSeeMore />
       </div>
