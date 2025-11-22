@@ -19,3 +19,7 @@ export function calcReadingTime(text: string, wordsPerMinute = 200): number {
   const words = text.trim().split(/\s+/).length;
   return Math.max(1, Math.ceil(words / wordsPerMinute));
 }
+
+export function formatNumber(num: number) {
+  return new Intl.NumberFormat('id-ID').format(num);
+}

@@ -3,9 +3,11 @@ import Love from '@/components/blog/love';
 import getArticleContent from '@/lib/getArticleContent';
 import getArticleMetadata from '@/lib/getArticleMetadata';
 import getTableOfContents from '@/lib/getTableOfContents';
-import { calcReadingTime } from '@/lib/utils';
+import { getBlogBySlug } from '@/lib/supabase/queries/blog';
+import { calcReadingTime, formatNumber } from '@/lib/utils';
 import { Clock, Eye, Heart } from 'lucide-react';
 import Image from 'next/image';
+import { incrementView } from './actions';
 
 export const generateStaticParams = async () => {
   const articles = getArticleMetadata('articles');
@@ -33,12 +35,13 @@ export const generateMetadata = async ({
   };
 };
 
-const ArticlePage = (props: any) => {
+const ArticlePage = async (props: any) => {
   const slug = props.params.slug;
+  
   const article = getArticleContent('articles/', slug);
-
+  const blog = await getBlogBySlug(slug);
+  const views = await incrementView(slug);
   const toc = getTableOfContents('articles/', slug);
-  console.log(toc);
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -88,7 +91,7 @@ const ArticlePage = (props: any) => {
                 {/* TODO: Next iterasi akan tambah feature ini makek supabase untuk save */}
                 <Eye size={14} className="text-emerald-600" />
                 <span className="text-xs text-muted-foreground">
-                  1,000 views
+                  {formatNumber(views)} views
                 </span>
               </div>
             </div>
@@ -102,7 +105,7 @@ const ArticlePage = (props: any) => {
               <div className="flex gap-1.5 items-center">
                 <Heart size={14} className="text-emerald-600" />
                 <span className="text-xs text-muted-foreground">
-                  {calcReadingTime(article.content)} likes
+                  {formatNumber(blog?.like)} likes
                 </span>
               </div>
             </div>
