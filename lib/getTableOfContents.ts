@@ -39,6 +39,9 @@ const getTableOfContents = (folder: string, slug: string): TocItem[] => {
     });
   }
 
+  toc.push({ level: 0, text: 'Like my blog', id: 'like-button' });
+  toc.push({ level: 0, text: "Let's discuss", id: 'discuss' });
+
   return toc;
 };
 

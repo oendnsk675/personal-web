@@ -23,3 +23,11 @@ export function calcReadingTime(text: string, wordsPerMinute = 200): number {
 export function formatNumber(num: number) {
   return new Intl.NumberFormat('id-ID').format(num);
 }
+
+export function getCookie(name: string) {
+  if (typeof document === 'undefined') return null;
+
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+
+  return match ? match[2] : null;
+}

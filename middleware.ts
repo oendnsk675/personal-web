@@ -1,22 +1,9 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import type { NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  const res = NextResponse.next();
+  const ua = req.headers.get('user-agent')?.toLowerCase() || '';
 
-  let anonId = req.cookies.get("anon_id")?.value;
-  
-  if (!anonId) {
-    anonId = crypto.randomUUID();
-    res.cookies.set({
-      name: "anon_id",
-      value: anonId,
-      httpOnly: false,
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 365
-    });
+  if (ua.includes('curl') || ua.includes('wget') || ua.includes('python')) {
+    return new Response('Blocked', { status: 403 });
   }
-
-  return res;
 }

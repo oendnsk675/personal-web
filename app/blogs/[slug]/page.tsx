@@ -1,13 +1,16 @@
 import ArticleContent from '@/components/ArticleContent';
-import Love from '@/components/blog/love';
+import LikeButton from '@/components/blog/like-button';
+import Likes from '@/components/blog/likes';
+import ViewCounter from '@/components/blog/view-counter';
+import Comments from '@/components/comments';
+import LineLights from '@/components/pattern/line-lights';
 import getArticleContent from '@/lib/getArticleContent';
 import getArticleMetadata from '@/lib/getArticleMetadata';
 import getTableOfContents from '@/lib/getTableOfContents';
 import { getBlogBySlug } from '@/lib/supabase/queries/blog';
-import { calcReadingTime, formatNumber } from '@/lib/utils';
-import { Clock, Eye, Heart } from 'lucide-react';
+import { calcReadingTime } from '@/lib/utils';
+import { Clock } from 'lucide-react';
 import Image from 'next/image';
-import { incrementView } from './actions';
 
 export const generateStaticParams = async () => {
   const articles = getArticleMetadata('articles');
@@ -37,14 +40,14 @@ export const generateMetadata = async ({
 
 const ArticlePage = async (props: any) => {
   const slug = props.params.slug;
-  
+
   const article = getArticleContent('articles/', slug);
   const blog = await getBlogBySlug(slug);
-  const views = await incrementView(slug);
   const toc = getTableOfContents('articles/', slug);
 
   return (
     <div className="w-full flex flex-col items-center">
+      {slug && <ViewCounter slug={slug} />}
       <div className="absolute w-full h-80">
         <Image
           src={article.data.thumbnail}
@@ -88,11 +91,7 @@ const ArticlePage = async (props: any) => {
           <div className="flex justify-between py-4">
             <div className="flex gap-4">
               <div className="flex gap-1.5 items-center">
-                {/* TODO: Next iterasi akan tambah feature ini makek supabase untuk save */}
-                <Eye size={14} className="text-emerald-600" />
-                <span className="text-xs text-muted-foreground">
-                  {formatNumber(views)} views
-                </span>
+                {slug && <ViewCounter slug={slug} />}
               </div>
             </div>
             <div className="flex gap-4">
@@ -103,16 +102,13 @@ const ArticlePage = async (props: any) => {
                 </span>
               </div>
               <div className="flex gap-1.5 items-center">
-                <Heart size={14} className="text-emerald-600" />
-                <span className="text-xs text-muted-foreground">
-                  {formatNumber(blog?.like)} likes
-                </span>
+                <Likes value={blog.likes} />
               </div>
             </div>
           </div>
           <hr />
         </div>
-        <section className="flex gap-4 min-h-screen relative mb-24">
+        <section className="flex gap-4 min-h-screen relative mb-48">
           {/* content */}
           <div className="w-full md:w-3/4">
             <ArticleContent
@@ -133,7 +129,7 @@ const ArticlePage = async (props: any) => {
                 Table of Contents
               </h4>
 
-              <div className="h-full overflow-y-scroll overflow-x-hidden grid gap-4 p-5">
+              <div className="h-full overflow-y-scroll overflow-x-hidden grid gap-4 p-5 pb-24">
                 {toc.map((item) => (
                   <a
                     key={item.id}
@@ -154,7 +150,20 @@ const ArticlePage = async (props: any) => {
           </div>
         </section>
         {/* love */}
-        <Love />
+        <div
+          id="like-button"
+          className="w-full flex justify-center items-center mb-8 relative"
+        >
+          {slug && <LikeButton defaultValue={blog?.likes} slug={slug} />}
+        </div>
+
+        {/* divider */}
+        <div className="w-full h-10 relative overflow-hidden mb-16">
+          <div className="absolute left-0 bottom-0 z-20 h-px w-full bg-linear-to-r from-transparent via-white/30 to-transparent"></div>
+          <LineLights position="bottom" className="opacity-60" />
+        </div>
+
+        <Comments />
       </main>
     </div>
   );
