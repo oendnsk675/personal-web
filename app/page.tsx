@@ -6,7 +6,7 @@ import { BackgroundBeams } from '@/components/ui/background-beams';
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full xl:max-w-6xl px-4 lg:px-0">
       <ArcticLightsTopGlow />
       {/* <DarkDiagonalFadeGrid /> */}
       <BackgroundBeams />
