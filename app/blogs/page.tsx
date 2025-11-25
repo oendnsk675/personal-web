@@ -1,19 +1,9 @@
 import HeaderLight from '@/components/blog/header-light';
-import CardBlog from '@/components/card-blog';
+import ListBlog from '@/components/blog/list-blog';
 import Fancytext from '@/components/fancy-text';
 import NewsletterPattern from '@/components/pattern/newsletter-pattern';
 import RichSelect from '@/components/rich-select';
 import { Button } from '@/components/ui/button';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
-import getArticleMetadata from '@/lib/getArticleMetadata';
 import { ArrowRight, Calendar, Eye, TerminalIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -30,11 +20,14 @@ const sortOptions = [
   },
 ];
 
-export default function Blog() {
-  const articleMetadata = getArticleMetadata('articles');
-  const sortedArticles = articleMetadata.sort(
-    (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+export default async function Blog(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  const page = Number(searchParams?.page) || 1;
 
   return (
     <div className="w-full relative flex flex-col items-center">
@@ -62,28 +55,7 @@ export default function Blog() {
       <main className="xl:max-w-6xl px-4 lg:px-0 relative min-h-[150vh] flex flex-col-reverse md:flex-row gap-4 md:gap-0 md:items-start">
         {/* left */}
         <section className="w-full md:w-3/4 min-h-[150vh] pb-6 md:pr-6 md:border-r">
-          {sortedArticles.map((item, index) => (
-            <CardBlog content={item} key={index} />
-          ))}
-          {/* paggination */}
-          <div className="flex justify-center mt-8">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
+          <ListBlog page={page} />
         </section>
         {/* right */}
         <section className="block md:sticky left-0 top-8 md:mb-16 w-full md:flex-1 md:pb-6 md:pt-6 md:pl-6">
