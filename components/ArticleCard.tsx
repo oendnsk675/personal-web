@@ -2,6 +2,7 @@ import getDateFormat from '@/lib/content/getDateFormat';
 import Link from 'next/link';
 import styles from './ArticleCard.module.css';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ArticleCard = (props: any) => {
   const { article } = props;
   return article ? (

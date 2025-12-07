@@ -22,7 +22,7 @@ export default function Hero() {
 
         <div className="max-w-120 grid gap-8">
           <div className="grid gap-7">
-            <h1 className="text-5xl 2xl:text-7xl font-bold">I'm Cozy</h1>
+            <h1 className="text-5xl 2xl:text-7xl font-bold">{"I\'m"} Cozy</h1>
             <p className="">
               I craft premium websites for creators, entrepreneurs and startups
               who want to convert clients, drive serious revenue and stand out

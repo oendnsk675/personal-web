@@ -23,6 +23,7 @@ const inlineCodeStyle = {
   fontSize: '0.875rem',
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderInlineCode = ({ children, ...props }: any) => {
   return (
     <code style={inlineCodeStyle} {...props}>
@@ -32,6 +33,7 @@ const renderInlineCode = ({ children, ...props }: any) => {
 };
 
 const renderHeading = (level: number) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Component = ({ children, ...props }: any) => {
     const id = props?.node?.children[0]?.value
       ?.toString()

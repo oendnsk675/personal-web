@@ -109,7 +109,7 @@ export default function Footer() {
               Subscribe to Cozy blog newsletter
             </h4>
             <p className="text-pretty text-muted-foreground mb-6">
-              Don't miss out 😉. Get an email whenever I post, no spam.
+              {"Don\'t"} miss out 😉. Get an email whenever I post, no spam.
             </p>
 
             <Button variant={'outline'}>

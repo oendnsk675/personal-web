@@ -49,7 +49,7 @@ export default function CrouselProject({ items }: { items: string[] }) {
               );
             } else {
               return (
-                <CarouselItem>
+                <CarouselItem key={item}>
                   <h1 className="font-tulisan text-3xl">Thumbnail</h1>
                 </CarouselItem>
               );

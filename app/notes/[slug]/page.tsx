@@ -23,16 +23,10 @@ interface Params {
   slug?: string;
 }
 
-interface SearchParams {
-  [key: string]: string | string[];
-}
-
 export const generateMetadata = async ({
   params,
-  searchParams,
 }: {
   params: Params;
-  searchParams: SearchParams;
 }) => {
   const id = params?.slug ? ' - ' + params?.slug : '';
   return {
@@ -40,6 +34,7 @@ export const generateMetadata = async ({
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const NotesPage = async (props: any) => {
   const slug = props.params.slug;
 

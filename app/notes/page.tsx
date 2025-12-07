@@ -40,7 +40,7 @@ export default function Notes() {
           secondWord="Notes"
         />
         <p className="text-center mb-2 relative z-20 bg-linear-to-r from-neutral-600 via-neutral-50 to-neutral-600 bg-clip-text text-transparent">
-          My personal notes that's not long enough to be a blog post
+          My personal notes {"that\'s"} not long enough to be a blog post
         </p>
         <InputGroup className="w-full md:w-xl relative z-20">
           <InputGroupInput placeholder="Search..." />
