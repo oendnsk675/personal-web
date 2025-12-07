@@ -31,3 +31,14 @@ export function getCookie(name: string) {
 
   return match ? match[2] : null;
 }
+
+export function formatDate(date?: string) {
+  return new Date(date || '')
+    .toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    })
+    .replace(',', '')
+    .replace(/ /g, ' / ');
+}

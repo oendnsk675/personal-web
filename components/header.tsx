@@ -80,11 +80,11 @@ export default function Header() {
             </Link>
           </li>
         ))}
-        <div className="h-full py-2 mx-1 hidden md:block">
+        <div className="h-full py-2 mx-1 hidden">
           <hr className="h-full border opacity-70" />
         </div>
         <DropdownMenu modal={false}>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger asChild className="hidden">
             <button className="flex justify-center items-center relative aspect-square rounded-lg bg-gray-200 dark:bg-neutral-800 w-10 h-10 cursor-custom hover:opacity-75 transition-all duration-150">
               <Bolt
                 width={20}

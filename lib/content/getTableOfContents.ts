@@ -1,6 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { BASE_DIR } from '../constants';
 
 // Helper slugify untuk bikin id heading
 const slugify = (text: string) =>
@@ -17,7 +18,7 @@ export interface TocItem {
 }
 
 const getTableOfContents = (folder: string, slug: string): TocItem[] => {
-  const file = path.join(folder, slug);
+  const file = path.join(BASE_DIR, folder, slug);
   const raw = fs.readFileSync(`${file}.md`, 'utf8');
 
   // Ambil hanya content markdownnya
@@ -26,7 +27,7 @@ const getTableOfContents = (folder: string, slug: string): TocItem[] => {
   const toc: TocItem[] = [];
 
   // Regex: match heading markdown (#, ##, ###, ...)
-  const regex = /^(#{1,6})\s+(.*)$/gm;
+  const regex = /^>? ?(#{1,6})\s+(.*)$/gm;
 
   let match;
   while ((match = regex.exec(content)) !== null) {

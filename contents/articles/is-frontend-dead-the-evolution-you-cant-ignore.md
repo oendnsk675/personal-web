@@ -4,7 +4,7 @@ date: 2025/11/22
 thumbnail: '/images/thumbnail/XUpTIRT4J.webp'
 description: 'Banyak yang bilang frontend sudah mati, tapi sebenarnya justru berevolusi jadi sesuatu yang jauh lebih besar — dan peluangnya makin luas.'
 categories: ['web development', 'frontend', 'fullstack', 'nextjs']
-------------------------------------------------------------------
+---
 
 # Introduction
 

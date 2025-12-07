@@ -1,12 +1,12 @@
-import CodeBlock from '@/lib/markdownRenderers/CodeBlock';
-import Heading from '@/lib/markdownRenderers/Heading';
-import HrNode from '@/lib/markdownRenderers/HrNode';
-import ImageNode from '@/lib/markdownRenderers/ImageNode';
-import LinkNode from '@/lib/markdownRenderers/LinkNode';
-import ListItemNode from '@/lib/markdownRenderers/ListItemNode';
-import ListNode from '@/lib/markdownRenderers/ListNode';
-import Paragraph from '@/lib/markdownRenderers/Paragraph';
-import Preformatted from '@/lib/markdownRenderers/Preformatted';
+import CodeBlock from '@/components/mdx/CodeBlock';
+import Heading from '@/components/mdx/Heading';
+import HrNode from '@/components/mdx/HrNode';
+import ImageNode from '@/components/mdx/ImageNode';
+import LinkNode from '@/components/mdx/LinkNode';
+import ListItemNode from '@/components/mdx/ListItemNode';
+import ListNode from '@/components/mdx/ListNode';
+import Paragraph from '@/components/mdx/Paragraph';
+import Preformatted from '@/components/mdx/Preformatted';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -89,6 +89,11 @@ const renderers: Components = {
   p: ({ children, ...props }) => <Paragraph {...props}>{children}</Paragraph>,
   pre: ({ children, ...props }) => (
     <Preformatted {...props}>{children}</Preformatted>
+  ),
+  blockquote: ({ children, ...props }) => (
+    <blockquote className="border-l-4 border-emerald-300 pl-4" {...props}>
+      {children}
+    </blockquote>
   ),
 };
 

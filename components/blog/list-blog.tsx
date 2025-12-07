@@ -1,4 +1,4 @@
-import { getPaginatedBlogs } from '@/lib/getPaginatedBlogs';
+import { getAllBlogs } from '@/lib/content/getAll';
 import CardBlog from '../card-blog';
 import {
   Pagination,
@@ -11,7 +11,8 @@ import {
 } from '../ui/pagination';
 
 export default function ListBlog({ page }: { page: number }) {
-  const { data, totalPages } = getPaginatedBlogs(page, 10);
+  const { data, meta } = getAllBlogs({ page });
+  const { totalPages } = meta;
 
   return (
     <>

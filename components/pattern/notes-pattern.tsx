@@ -1,4 +1,12 @@
-export default function NotesPattern() {
+import { formatDate } from '@/lib/utils';
+
+export default function NotesPattern({
+  notes,
+  date,
+}: {
+  notes?: string;
+  date?: string;
+}) {
   return (
     <div className="absolute inset-0 h-[450px] w-full p-4 md:p-8 top-[-1rem] md:top-0 opacity-60">
       <div className="flex flex-col invisible md:visible">
@@ -22,7 +30,7 @@ export default function NotesPattern() {
               <span className="inline-block min-w-[10ch] text-sm">Notes</span>
               <span className="flex flex-col">
                 <span className="inline-block w-32 line-clamp-1 truncate font-tulisan text-xl tracking-wider">
-                  Cozy's shorts
+                  {notes ? notes : "Cozy's shorts"}
                 </span>
                 <span
                   data-orientation="horizontal"
@@ -34,7 +42,7 @@ export default function NotesPattern() {
             <p className="c1 txt-tertiary">
               <span className="inline-block text-sm min-w-[10ch]">Date</span>
               <span className="font-tulisan text-xl leading-tight">
-                15 / Nov / 2025
+                {date ? formatDate(date) : formatDate()}
               </span>
             </p>
           </div>

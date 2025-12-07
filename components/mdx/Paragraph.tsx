@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { cn } from '../utils';
+import { cn } from '../../lib/utils';
 import styles from './Paragraph.module.css';
 
 export interface ParagraphProps {

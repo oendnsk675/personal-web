@@ -11,6 +11,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import { getAllProjects } from '@/lib/content/getAll';
 import { Calendar, Eye, Folder } from 'lucide-react';
 
 const sortOptions = [
@@ -26,7 +27,8 @@ const sortOptions = [
   },
 ];
 
-export default function Blog() {
+export default function Projects() {
+  const { data: projects } = getAllProjects({ limit: 10, order: 'desc' });
   return (
     <div className="w-full relative flex flex-col items-center">
       {/* HEADER BLOG */}
@@ -52,8 +54,8 @@ export default function Blog() {
 
       {/* content */}
       <main className="xl:max-w-6xl px-4 lg:px-0 relative flex flex-col gap-4 md:gap-0 md:items-start mb-12">
-        {Array.from({ length: 10 }).map((_, index) => (
-          <CardProject key={index} />
+        {projects.map((project, index) => (
+          <CardProject data={project} index={index} key={index} />
         ))}
 
         {/* paggination */}

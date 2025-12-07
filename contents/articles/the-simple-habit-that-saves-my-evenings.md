@@ -3,14 +3,15 @@ title: 'The Simple Habit That Saves My Evenings'
 date: 2025/09/28
 thumbnail: '/images/thumbnail/36ce36174eefcf15a1b66c8d5716e5da.webp'
 description: 'Sebuah kebiasaan kecil yang selalu menyelamatkan waktuku di malam hari—dan menjaga keseimbangan antara kerja dan hidup sebagai software engineer.'
-categories: ['work-life balance', 'productivity', 'software engineering', 'habits']
------------------------------------------------------------------------------------
+categories:
+  ['work-life balance', 'productivity', 'software engineering', 'habits']
+---
 
 # Introduction
 
 Sebagai seorang software engineer, kita semua tau rasanya ketika pekerjaan lagi banyak-banyaknya, sementara waktu fokus tanpa gangguan itu rasanya kayak barang mewah. Slack bunyi, meeting datang tiba-tiba, ada yang ngajak ngopi, atau kadang otak sendiri udah capek duluan sebelum kerjaan selesai.
 
-Tapi anehnya, sering kali *flow kerja paling produktif* justru datang di akhir hari kerja. Dan di situlah masalah biasanya dimulai.
+Tapi anehnya, sering kali _flow kerja paling produktif_ justru datang di akhir hari kerja. Dan di situlah masalah biasanya dimulai.
 
 ### The "20 Minutes" Trap
 
@@ -26,7 +27,7 @@ Yang lebih parah—kamu pulang dalam kondisi drained dan mulai hari besok dengan
 
 Aku ngalamin hal ini sekitar 5 tahun lalu saat kerja di sebuah startup yang lagi cepat banget tumbuhnya. Suasana kantor seru, semua orang ngebut, dan lembur jadi hal yang biasa.
 
-Suatu malam, aku merasa akhirnya berhasil memecahkan bagian sulit dari infrastruktur yang lagi aku garap. Pikiran pertama: *"Ah, 20 menit lagi kelar nih."*
+Suatu malam, aku merasa akhirnya berhasil memecahkan bagian sulit dari infrastruktur yang lagi aku garap. Pikiran pertama: _"Ah, 20 menit lagi kelar nih."_
 
 Tapi 20 menit itu berubah jadi lebih dari 3 jam. Aku pulang ke apartemen dalam kondisi capek dan kesal—dan hasilnya? Nyaris nggak ada progress.
 
@@ -48,10 +49,10 @@ Alih-alih memaksa menyelesaikan task, gunakan 10–20 menit terakhir hari kerjam
 
 Dengan cara ini:
 
-* Kamu menutup hari dengan kepala yang lebih ringan.
-* Kamu pulang tepat waktu.
-* Kamu memulai hari esok dengan rencana matang.
-* Fokusmu besok jauh lebih tajam karena kamu datang dengan energi penuh.
+- Kamu menutup hari dengan kepala yang lebih ringan.
+- Kamu pulang tepat waktu.
+- Kamu memulai hari esok dengan rencana matang.
+- Fokusmu besok jauh lebih tajam karena kamu datang dengan energi penuh.
 
 Dan bonusnya—sering kali ide baru justru muncul setelah otak kamu istirahat.
 

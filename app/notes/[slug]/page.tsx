@@ -1,10 +1,12 @@
 import ArticleContent from '@/components/ArticleContent';
+import HeaderLight from '@/components/blog/header-light';
 import LikeButton from '@/components/blog/like-button';
 import Likes from '@/components/blog/likes';
 import ViewCounter from '@/components/blog/view-counter';
 import Comments from '@/components/comments';
 import LineLights from '@/components/pattern/line-lights';
-import { getDetailArticle } from '@/lib/content/getDetail';
+import NotesPattern from '@/components/pattern/notes-pattern';
+import { getDetailNote } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
 import getTableOfContents from '@/lib/content/getTableOfContents';
 import { getBlogBySlug } from '@/lib/supabase/queries/blog';
@@ -13,7 +15,7 @@ import { Clock } from 'lucide-react';
 import Image from 'next/image';
 
 export const generateStaticParams = async () => {
-  const slugs = getSlugs('articles');
+  const slugs = getSlugs('notes');
   return slugs.map((slug) => ({ slug }));
 };
 
@@ -38,32 +40,26 @@ export const generateMetadata = async ({
   };
 };
 
-const ArticlePage = async (props: any) => {
+const NotesPage = async (props: any) => {
   const slug = props.params.slug;
 
-  const article = getDetailArticle(slug);
-  const blog = await getBlogBySlug(slug);
-  const toc = getTableOfContents('articles', slug);
+  const notes = getDetailNote(slug);
+  const metadata = await getBlogBySlug(slug);
+  const toc = getTableOfContents('notes', slug);
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="absolute w-full h-80">
-        <Image
-          src={article.thumbnail}
-          alt={article.title}
-          fill
-          className="object-cover"
-        />
-        <div className="w-full h-80 bg-linear-to-t from-background absolute top-0"></div>
+      <div className="w-full h-80 relative overflow-hidden">
+        <div className="w-full h-80 bg-linear-to-t from-background absolute top-0 z-20"></div>
+        <HeaderLight />
+        <NotesPattern date={notes.date} />
       </div>
-      <main className="w-full xl:max-w-5xl px-4 lg:px-0 mt-80 mb-12">
+      <main className="relative z-40 w-full xl:max-w-5xl px-4 lg:px-0 mb-12">
         <section className="mb-8">
           {/* title and summary */}
           <div className="grid gap-2 mb-8">
-            <h1 className="text-5xl font-bold">{article.title}</h1>
-            <p className="text-lg text-muted-foreground">
-              {article.description}
-            </p>
+            <h1 className="text-5xl font-bold">{notes.title}</h1>
+            <p className="text-lg text-muted-foreground">{notes.description}</p>
           </div>
 
           {/* profile */}
@@ -78,7 +74,7 @@ const ArticlePage = async (props: any) => {
             </div>
             <div className="grid">
               <h4 className="font-semibold">Sayidina Ahmadal Qososyi</h4>
-              <p className="text-xs text-muted-foreground">{article.date}</p>
+              <p className="text-xs text-muted-foreground">{notes.date}</p>
             </div>
           </div>
         </section>
@@ -95,11 +91,11 @@ const ArticlePage = async (props: any) => {
               <div className="flex gap-1.5 items-center">
                 <Clock size={14} className="text-emerald-600" />
                 <span className="text-xs text-muted-foreground">
-                  {calcReadingTime(article.content)} min read
+                  {calcReadingTime(notes.content)} min read
                 </span>
               </div>
               <div className="flex gap-1.5 items-center">
-                <Likes value={blog?.likes} />
+                <Likes value={metadata?.likes} />
               </div>
             </div>
           </div>
@@ -109,9 +105,9 @@ const ArticlePage = async (props: any) => {
           {/* content */}
           <div className="w-full md:w-3/4">
             <ArticleContent
-              articleContent={article.content}
-              articleTitle={article.title}
-              folder="articles"
+              articleContent={notes.content}
+              articleTitle={notes.title}
+              folder="notes"
               loading={false}
               slug={slug}
             />
@@ -151,7 +147,7 @@ const ArticlePage = async (props: any) => {
           id="like-button"
           className="w-full flex justify-center items-center mb-8 relative"
         >
-          {slug && <LikeButton defaultValue={blog?.likes} slug={slug} />}
+          {slug && <LikeButton defaultValue={metadata?.likes} slug={slug} />}
         </div>
 
         {/* divider */}
@@ -166,4 +162,4 @@ const ArticlePage = async (props: any) => {
   );
 };
 
-export default ArticlePage;
+export default NotesPage;

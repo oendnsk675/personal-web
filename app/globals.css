@@ -152,6 +152,10 @@ body {
   cursor: url('/cursor-hover.svg'), pointer !important;
 }
 
+a:hover {
+  cursor: url('/cursor-hover.svg'), pointer !important;
+}
+
 .font-handwriting {
   font-family: var(--font-shadows-into-light), ui-sans-serif, system-ui,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',

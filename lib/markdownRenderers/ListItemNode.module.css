@@ -1,9 +1,0 @@
-.list {
-    font-size: 16px;
-    line-height: 32px;
-    margin-top: 16px;
-}
-
-.list:first-child {
-    margin-top: 40px;
-}

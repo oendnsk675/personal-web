@@ -16,13 +16,15 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import { getAllNotes } from '@/lib/content/getAll';
 import { Folder, Search } from 'lucide-react';
 
-export default function Blog() {
+export default function Notes() {
+  const { data: notes } = getAllNotes({ limit: 10 });
   return (
     <div className="w-full relative flex flex-col items-center">
       {/* HEADER BLOG */}
-      <div className="w-full relative flex flex-col items-center gap-4 px-4 md:px-0 pt-32 pb-6 md:pb-20 border-b">
+      <div className="w-full relative flex flex-col items-center gap-4 px-4 md:px-0 pt-36 pb-6 md:pb-20">
         <HeaderLight />
         <NotesPattern />
 
@@ -51,9 +53,9 @@ export default function Blog() {
 
       {/* content */}
       <main className="xl:max-w-6xl px-4 lg:px-0 relative flex flex-col gap-4 md:gap-0 md:items-start mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CardNotes key={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {notes.map((note, index) => (
+            <CardNotes note={note} key={index} />
           ))}
         </div>
 

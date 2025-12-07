@@ -1,9 +1,12 @@
+import { getAllProjects } from '@/lib/content/getAll';
 import dashArrow1 from '@/public/images/dash-arrow-1.svg';
 import Image from 'next/image';
 import ButtonSeeMore from '../button-see-more';
 import CardProject from '../card-projects';
 
 export default function Projects() {
+  const { data: projects } = getAllProjects({ limit: 3, order: 'desc' });
+
   return (
     <section className="w-full mb-20">
       {/* projects listcards */}
@@ -22,8 +25,8 @@ export default function Projects() {
           />
         </div>
 
-        {[1, 2, 3].map((item) => (
-          <CardProject key={item} />
+        {projects.map((project, index) => (
+          <CardProject data={project} index={index} key={index} />
         ))}
         <ButtonSeeMore />
       </div>

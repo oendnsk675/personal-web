@@ -1,19 +1,24 @@
 import ArticleContent from '@/components/ArticleContent';
+import HeaderLight from '@/components/blog/header-light';
 import LikeButton from '@/components/blog/like-button';
 import Likes from '@/components/blog/likes';
 import ViewCounter from '@/components/blog/view-counter';
 import Comments from '@/components/comments';
 import LineLights from '@/components/pattern/line-lights';
-import { getDetailArticle } from '@/lib/content/getDetail';
+import ProjectHeaderPattern from '@/components/pattern/project-header-pattern';
+import CrouselProject from '@/components/projects/crousel-project';
+import { getDetailProject } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
 import getTableOfContents from '@/lib/content/getTableOfContents';
 import { getBlogBySlug } from '@/lib/supabase/queries/blog';
 import { calcReadingTime } from '@/lib/utils';
-import { Clock } from 'lucide-react';
+import { Clock, Link2 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { SiGithub } from 'react-icons/si';
 
 export const generateStaticParams = async () => {
-  const slugs = getSlugs('articles');
+  const slugs = getSlugs('projects');
   return slugs.map((slug) => ({ slug }));
 };
 
@@ -34,35 +39,28 @@ export const generateMetadata = async ({
 }) => {
   const id = params?.slug ? ' - ' + params?.slug : '';
   return {
-    title: `My Blog ${id.replaceAll('_', '')}`,
+    title: `My Project ${id.replaceAll('_', '')}`,
   };
 };
 
 const ArticlePage = async (props: any) => {
   const slug = props.params.slug;
 
-  const article = getDetailArticle(slug);
-  const blog = await getBlogBySlug(slug);
-  const toc = getTableOfContents('articles', slug);
+  const detailProject = getDetailProject(slug);
+  const metadata = await getBlogBySlug(slug);
+  const toc = getTableOfContents('projects', slug);
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="absolute w-full h-80">
-        <Image
-          src={article.thumbnail}
-          alt={article.title}
-          fill
-          className="object-cover"
-        />
-        <div className="w-full h-80 bg-linear-to-t from-background absolute top-0"></div>
-      </div>
-      <main className="w-full xl:max-w-5xl px-4 lg:px-0 mt-80 mb-12">
+      <HeaderLight />
+      <ProjectHeaderPattern />
+      <main className="relative z-20 w-full xl:max-w-5xl px-4 lg:px-0 mt-80 mb-12">
         <section className="mb-8">
           {/* title and summary */}
           <div className="grid gap-2 mb-8">
-            <h1 className="text-5xl font-bold">{article.title}</h1>
+            <h1 className="text-5xl font-bold">{detailProject.title}</h1>
             <p className="text-lg text-muted-foreground">
-              {article.description}
+              {detailProject.description}
             </p>
           </div>
 
@@ -78,7 +76,9 @@ const ArticlePage = async (props: any) => {
             </div>
             <div className="grid">
               <h4 className="font-semibold">Sayidina Ahmadal Qososyi</h4>
-              <p className="text-xs text-muted-foreground">{article.date}</p>
+              <p className="text-xs text-muted-foreground">
+                {detailProject.role}
+              </p>
             </div>
           </div>
         </section>
@@ -88,19 +88,33 @@ const ArticlePage = async (props: any) => {
           <div className="flex justify-between py-4">
             <div className="flex gap-4">
               <div className="flex gap-1.5 items-center">
-                {slug && <ViewCounter slug={slug} />}
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex gap-1.5 items-center">
                 <Clock size={14} className="text-emerald-600" />
                 <span className="text-xs text-muted-foreground">
-                  {calcReadingTime(article.content)} min read
+                  {calcReadingTime(detailProject.content)} min read
                 </span>
               </div>
               <div className="flex gap-1.5 items-center">
-                <Likes value={blog?.likes} />
+                <Likes value={metadata?.likes} />
               </div>
+              <div className="flex gap-1.5 items-center">
+                {slug && <ViewCounter slug={slug} />}
+              </div>
+            </div>
+            <div className="flex item-center gap-4">
+              <Link
+                href={detailProject.links.code ?? '#'}
+                className="flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150"
+              >
+                <SiGithub size={14} />
+                <span>Repository</span>
+              </Link>
+              <Link
+                href={detailProject.links.code ?? '#'}
+                className="flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150"
+              >
+                <Link2 size={14} />
+                <span>Open Live Site</span>
+              </Link>
             </div>
           </div>
           <hr />
@@ -108,9 +122,14 @@ const ArticlePage = async (props: any) => {
         <section className="flex gap-4 min-h-screen relative mb-48">
           {/* content */}
           <div className="w-full md:w-3/4">
+            {/* <div className="w-full aspect-video rounded-2xl bg-linear-150 from-[#2E996C]/30 to-[#0F3324]/30 flex items-center justify-center">
+              <h1 className="font-tulisan text-3xl">Thumbnail</h1>
+            </div> */}
+            <CrouselProject items={detailProject?.images} />
+
             <ArticleContent
-              articleContent={article.content}
-              articleTitle={article.title}
+              articleContent={detailProject.content}
+              articleTitle={detailProject.title}
               folder="articles"
               loading={false}
               slug={slug}
@@ -126,7 +145,7 @@ const ArticlePage = async (props: any) => {
                 Table of Contents
               </h4>
 
-              <div className="h-full overflow-y-scroll overflow-x-hidden flex flex-col  gap-4 p-5 pb-24">
+              <div className="h-full overflow-y-scroll overflow-x-hidden flex flex-col gap-4 p-5 pb-24">
                 {toc.map((item) => (
                   <a
                     key={item.id}
@@ -137,7 +156,7 @@ const ArticlePage = async (props: any) => {
                     hover:text-foreground 
                     transition 
                     cursor-pointer
-                    block"
+                    block h-fit"
                   >
                     {item.text}
                   </a>
@@ -151,7 +170,7 @@ const ArticlePage = async (props: any) => {
           id="like-button"
           className="w-full flex justify-center items-center mb-8 relative"
         >
-          {slug && <LikeButton defaultValue={blog?.likes} slug={slug} />}
+          {slug && <LikeButton defaultValue={metadata?.likes} slug={slug} />}
         </div>
 
         {/* divider */}

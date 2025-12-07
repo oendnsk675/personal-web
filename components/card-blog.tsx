@@ -1,28 +1,21 @@
-import getDateFormat from '@/lib/getDateFormat';
+import getDateFormat from '@/lib/content/getDateFormat';
 import { calcReadingTime } from '@/lib/utils';
-import { Clock, Eye } from 'lucide-react';
+import { TBlogMarkdown } from '@/types/blog';
+import { Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ViewCounter from './blog/view-counter';
 import LineLights from './pattern/line-lights';
 
-// {title: string, date: string, description: string, thumbnail: string, slug: string}
 type TContent = {
-  content: {
-    title: string;
-    date: string;
-    description: string;
-    thumbnail: string;
-    slug: string;
-    categories: string[];
-    content: string;
-  };
+  content: TBlogMarkdown;
 };
 
 export default function CardBlog({ content }: TContent) {
   return (
     <Link
       href={`/blogs/${content.slug}`}
-      className="flex flex-col-reverse gap-4 md:flex-row justify-between py-8 border-b group cursor-custom relative overflow-hidden"
+      className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row md:items-start justify-between py-8 border-b group cursor-custom relative overflow-hidden"
     >
       <LineLights
         position="bottom"
@@ -34,7 +27,7 @@ export default function CardBlog({ content }: TContent) {
         {/* date */}
         <span className="text-sm">{getDateFormat(content.date)}</span>
         {/* title and summary */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 md:mb-4">
           <div className="relative w-fit">
             <div className="opacity-0 group-hover:opacity-100 absolute -z-10 inset-0 w-full h-full bg-linear-to-r from-transparent via-emerald-500/50 to-transparent transition-all duration-150"></div>
             <h4 className="text-lg font-bold">{content.title}</h4>
@@ -48,14 +41,12 @@ export default function CardBlog({ content }: TContent) {
           <div className="flex items-center gap-4 flex-1">
             <div className="flex gap-1.5 items-center">
               <Clock size={14} className="text-emerald-600" />
-              <span className="text-xs">
+              <span className="text-xs text-muted-foreground">
                 {calcReadingTime(content.content)} min read
               </span>
             </div>
-            <div className="flex gap-1.5 items-center hidden">
-              {/* TODO: Next iterasi akan tambah feature ini makek supabase untuk save */}
-              <Eye size={14} className="text-emerald-600" />
-              <span className="text-xs">1,000 views</span>
+            <div className="flex gap-1.5 items-center">
+              {content.slug && <ViewCounter slug={content.slug} />}
             </div>
           </div>
 
