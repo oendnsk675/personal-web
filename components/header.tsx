@@ -58,23 +58,23 @@ const links = [
 export default function Header() {
   return (
     <header className="fixed flex justify-center w-full left-0 bottom-4 md:top-4 z-50 h-fit">
-      <ul className="flex items-center justify-between md:justify-start w-full mx-4 md:w-fit gap-4 md:mx-auto h-16 rounded-lg bg-gray-50/10 px-4 dark:bg-neutral-500/10 backdrop-blur border">
+      <ul className="flex items-center justify-between md:justify-start w-fit mx-4 md:w-fit gap-4 md:mx-auto h-16 rounded-lg bg-gray-50/10 px-4 dark:bg-neutral-500/10 backdrop-blur border">
         <Link
           href={'/'}
-          className="hover:opacity-75 cursor-custom transition-all duration-150 hidden md:block"
+          className="hover:opacity-75 cursor-custom transition-all duration-150"
         >
           <div className="flex justify-center items-center relative aspect-square rounded-lg bg-linear-30 from-emerald-800/30 via-emerald-500/30 to-emerald-800/20 border border-emerald-800 w-10 h-10">
             <h1 className="font-extrabold text-2xl">S</h1>
           </div>
         </Link>
-        <div className="h-full py-2 mx-1 hidden md:block">
+        <div className="h-full py-2 mx-1">
           <hr className="h-full border opacity-70" />
         </div>
         {links.map((link) => (
           <li key={link.title}>
             <Link
               href={link.href}
-              className="flex justify-center items-center relative aspect-square rounded-lg bg-gray-200 dark:bg-neutral-800 w-10 h-10 hover:opacity-75 transition-all duration-150 cursor-custom gap-2"
+              className="flex justify-center items-center relative aspect-square rounded-lg bg-gray-200 dark:bg-neutral-800/40 xl:dark:bg-neutral-800 w-10 h-10 hover:opacity-75 transition-all duration-150 cursor-custom gap-2"
             >
               {link.icon}
             </Link>
