@@ -20,93 +20,118 @@ date: 2024/09/01
 
 > ## Short Explanation
 
-Instalasi Farmasi Kalimantan Selatan adalah aplikasi manajemen obat dan alat kesehatan yang dikembangkan dengan fokus pada **sumber data terpadu** antar fasilitas kesehatan. Saya berkontribusi pada desain serta implementasi antarmuka menggunakan **Vue.js** dan **TailwindCSS**, dengan tujuan menciptakan pengalaman pengguna yang efisien dan mudah dipahami. Aplikasi ini membantu menyederhanakan proses pengelolaan persediaan obat dengan tampilan yang intuitif dan alur kerja yang terstruktur.
+Instalasi Farmasi Kalimantan Selatan adalah aplikasi manajemen obat dan alat kesehatan yang dibangun dengan fokus pada **sumber data terpadu**, **integrasi antarfaskes**, dan **proses pemrosesan data yang efisien**. 
+
+Sebagai **Full-Stack Developer**, saya berkontribusi pada seluruh bagian sistem mulai dari antarmuka pengguna menggunakan **Vue.js + TailwindCSS**, pengembangan API dan logika backend menggunakan **Express.js**, hingga implementasi antrian (queue system) untuk mengeksekusi proses berat seperti ekspor laporan agar aplikasi tetap stabil dan tidak menghambat aktivitas pengguna.
+
+---
 
 > ## Latar Belakang & Masalah
 
-Pengelolaan obat dan alat kesehatan di fasilitas layanan sering kali menghadapi tantangan seperti:
+Pengelolaan stok obat dan pergerakan antar fasilitas sering menghadapi beberapa tantangan:
 
-- Data yang tersebar dan tidak terpusat.
-- Ketidaksesuaian antara stok fisik dan pencatatan sistem.
-- Proses input dan validasi yang lambat karena UI yang kurang optimal.
-- Minimnya visibilitas terhadap pergerakan stok antarfaskes.
+- Data sering tersebar di banyak aplikasi dan tidak tersentralisasi.
+- Ketidaksesuaian stok fisik vs. stok sistem.
+- Proses validasi dan distribusi memerlukan banyak langkah manual.
+- Proses ekspor laporan cukup berat dan sering menghambat performa aplikasi.
+- UI/UX sebelumnya tidak ramah bagi petugas lapangan.
 
-Kondisi tersebut dapat mengakibatkan kesalahan pencatatan, keterlambatan distribusi, hingga ketidakefisienan operasional. Dibutuhkan sebuah sistem yang mampu mengelola data secara terpusat serta menyediakan alur penggunaan yang mudah bagi petugas.
+Diperlukan solusi yang tidak hanya memperbaiki UI, tetapi juga memperkuat arsitektur backend agar alur kerja menjadi lebih cepat, aman, dan terkontrol.
+
+---
 
 > ## Tujuan Proyek
 
-- Menyediakan antarmuka yang **sederhana, responsif, dan mudah digunakan** oleh petugas farmasi.
-- Mengintegrasikan seluruh aktivitas pengelolaan obat ke dalam satu sistem terpadu.
-- Mengurangi risiko salah input melalui UI/UX yang lebih terarah.
-- Mempercepat proses distribusi dan pengecekan stok antar fasilitas.
-- Memberikan transparansi dan akurasi data dalam skala wilayah.
+- Menghadirkan antarmuka yang **sederhana, responsif, dan jelas**.
+- Mengintegrasikan seluruh aktivitas pengelolaan obat dalam satu sistem terpusat.
+- Mengurangi kesalahan input melalui UI yang terstruktur.
+- **Mengoptimalkan proses berat** seperti ekspor laporan menggunakan **sistem antrian** agar tidak membebani server.
+- Menyediakan visibilitas penuh terhadap stok dan pergerakannya di seluruh faskes.
+
+---
 
 > ## Tech Stack
 
 **Frontend:** Vue.js, TailwindCSS  
-**Backend:** Express.js  
+**Backend:** Express.js (REST API)  
+**Queue System:** BullMQ (Redis) untuk background job & heavy process handling  
 **Database:** MongoDB  
-**Hosting / Deployment:** (mengikuti platform internal IFK)  
-**Role:** Software Engineer
+**Deployment:** Server IFK Kalsel (internal)  
+**Role:** Full-Stack Software Engineer
 
-Saya berfokus pada pengembangan antarmuka pengguna, integrasi dengan API backend, dan peningkatan pengalaman pengguna selama proses interaksi dengan aplikasi.
+Kontribusi saya mencakup pengembangan UI, desain sistem backend, integrasi API, serta implementasi job queue untuk kebutuhan laporan.
+
+---
 
 > ## Fitur Utama
 
 ### 1. Manajemen Obat & Alkes
-
-- Input data obat dan alat kesehatan.
-- Pembaruan stok dan pelacakan ketersediaan.
-- Validasi barang masuk dan keluar.
+- Pencatatan obat dan alkes.
+- Pembaruan stok real-time.
+- Validasi barang masuk & keluar.
 
 ### 2. Permintaan Obat Antar Fasilitas
+- Faskes dapat mengirim permintaan langsung ke Instalasi Farmasi.
+- Sistem mendukung proses verifikasi dan pemenuhan.
 
-- Faskes dapat mengajukan permintaan obat ke Instalasi Farmasi.
-- Sistem memfasilitasi verifikasi dan proses pemenuhan.
+### 3. Sistem Antrian untuk Laporan Berat
+- Proses ekspor laporan besar dipindahkan ke **background job**.
+- Aplikasi tetap responsif meskipun laporan berukuran besar.
+- Petugas mendapat notifikasi saat laporan siap diunduh.
 
-### 3. UI Cepat & Terstruktur
+### 4. UI Cepat & Terstruktur
+- Komponen yang ringan dan mudah dibaca.
+- Form dengan validasi real-time.
+- Navigasi responsif untuk desktop maupun tablet.
 
-- Navigasi sederhana dengan komponen yang mudah dipahami.
-- Tampilan responsif untuk penggunaan di berbagai perangkat.
-- Form input dengan validasi real-time.
+### 5. Dashboard Operasional
+- Ringkasan stok wilayah.
+- Status permintaan antar faskes.
+- Grafik tren dan notifikasi penting.
 
-### 4. Dashboard Ringkas
-
-- Ringkasan stok.
-- Status permintaan.
-- Notifikasi untuk tindakan yang membutuhkan perhatian.
+---
 
 > ## Tantangan & Solusi
 
-### Tantangan
+### Tantangan Frontend
+- Menyederhanakan form input dengan banyak parameter farmasi.
+- Menghindari lag saat menampilkan data stok yang besar.
 
-- Menyederhanakan alur input obat yang memiliki banyak parameter teknis.
-- Menjaga UI tetap ringan meskipun menampilkan banyak data stok.
-- Menghindari mis-click dan kesalahan input dari pengguna non-teknis.
+**Solusi:**
+- Menggunakan stepper dan input terstruktur untuk meminimalkan kesalahan.
+- Optimasi rendering menggunakan reactivity Vue + pagination & lazy loading.
 
-### Solusi
+### Tantangan Backend
+- Proses ekspor laporan sering memakan waktu lama dan memberatkan server.
+- Pengelolaan request faskes membutuhkan workflow yang konsisten.
 
-- Mendesain ulang form menjadi beberapa tahap (stepper) agar lebih mudah diikuti.
-- Mengoptimalkan rendering komponen menggunakan teknik reactivity dan lazy loading Vue.
-- Menggunakan TailwindCSS untuk konsistensi UI dan efisiensi styling.
+**Solusi:**
+- Mengimplementasikan **BullMQ queue** untuk memindahkan pekerjaan berat ke background.
+- Mendesain ulang API workflow agar lebih terstruktur dan mudah dipantau.
+- Memperkuat validasi dan integritas data menggunakan schema.
+
+---
 
 > ## Hasil & Dampak
 
-- Antarmuka aplikasi kini lebih mudah digunakan oleh petugas lapangan.
-- Proses input stok menjadi lebih cepat dan minim kesalahan.
-- Pelaporan stok antar fasilitas menjadi lebih transparan.
-- Data obat yang sebelumnya tersebar kini tersentralisasi dalam satu sistem.
+- Aplikasi jauh lebih **stabil, responsif, dan mudah digunakan**.
+- Proses input dan distribusi obat menjadi lebih cepat.
+- Ekspor laporan besar tidak lagi membebani server.
+- Data obat yang sebelumnya tersebar kini **tersentralisasi dan konsisten**.
+- Petugas dapat memantau status stok dan permintaan dengan lebih akurat.
 
-Aplikasi dapat diakses melalui:  
-**Live:** https://ifk-kalsel.bimajaya.co.id
+**Live App:** https://ifk-kalsel.bimajaya.co.id
+
+---
 
 > ## Refleksi & Pembelajaran
 
 Proyek ini memperkuat pemahaman saya mengenai:
 
-- Mendesain antarmuka untuk pengguna non-teknis.
-- Kolaborasi antara tim front-end dan backend dalam lingkungan kesehatan.
-- Pentingnya konsistensi komponen UI untuk meminimalkan kesalahan input.
-- Membangun sistem yang membantu operasional nyata di lapangan, bukan sekadar memenuhi requirement teknis.
+- Pengembangan full-stack untuk aplikasi operasional skala dinas.
+- Membangun sistem antrian (queue) untuk meningkatkan performa dan skalabilitas.
+- Mendesain UI yang ramah bagi pengguna non-teknis.
+- Kolaborasi lintas tim dalam domain kesehatan.
+- Pentingnya konsistensi data dalam lingkungan multi-fasilitas.
 
-Saya melihat masih banyak potensi pengembangan, seperti peningkatan visual dashboard, optimasi performa pada data besar, dan integrasi laporan otomatis.
+Masih ada ruang pengembangan seperti peningkatan otomasi laporan, visualisasi dashboard yang lebih dinamis, dan optimasi performa untuk data bertambah besar.

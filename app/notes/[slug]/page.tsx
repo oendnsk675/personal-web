@@ -52,7 +52,7 @@ const NotesPage = async (props: any) => {
       <main className="relative z-40 w-full xl:max-w-5xl px-4 lg:px-0 mb-12">
         <section className="mb-8">
           {/* title and summary */}
-          <div className="grid gap-2 mb-8">
+          <div className="grid gap-4 mb-12">
             <h1 className="text-5xl font-bold">{notes.title}</h1>
             <p className="text-lg text-muted-foreground">{notes.description}</p>
           </div>
