@@ -11,7 +11,7 @@ import { getDetailProject } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
 import getTableOfContents from '@/lib/content/getTableOfContents';
 import { getBlogBySlug } from '@/lib/supabase/queries/blog';
-import { calcReadingTime } from '@/lib/utils';
+import { calcReadingTime, cn } from '@/lib/utils';
 import { Clock, Link2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ const ArticlePage = async (props: any) => {
     <div className="w-full flex flex-col items-center">
       <HeaderLight />
       <ProjectHeaderPattern />
-      <main className="relative z-20 w-full xl:max-w-5xl px-4 lg:px-0 mt-80 mb-12">
+      <main className="relative z-20 w-full xl:max-w-5xl px-4 lg:px-0 mt-40 xl:mt-80 mb-12">
         <section className="mb-8">
           {/* title and summary */}
           <div className="grid gap-4 mb-12">
@@ -80,7 +80,7 @@ const ArticlePage = async (props: any) => {
         {/* divider */}
         <div className="w-full grid mb-14">
           <hr />
-          <div className="flex justify-between py-4">
+          <div className="flex justify-between flex-wrap gap-4 py-4">
             <div className="flex gap-4">
               <div className="flex gap-1.5 items-center">
                 <Clock size={14} className="text-emerald-600" />
@@ -98,14 +98,14 @@ const ArticlePage = async (props: any) => {
             <div className="flex item-center gap-4">
               <Link
                 href={detailProject.links.code ?? '#'}
-                className="flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150"
+                className={cn("flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150", !detailProject.links.code && 'pointer-events-none opacity-50')}
               >
                 <SiGithub size={14} />
                 <span>Repository</span>
               </Link>
               <Link
                 href={detailProject.links.code ?? '#'}
-                className="flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150"
+                className={cn("flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150", !detailProject.links.live && 'pointer-events-none opacity-50')}
               >
                 <Link2 size={14} />
                 <span>Open Live Site</span>

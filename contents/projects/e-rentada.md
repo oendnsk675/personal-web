@@ -5,6 +5,9 @@ description: 'A web-based room booking app built with Next.js, featuring real-ti
 thumbnail: '/images/thumbnail/e-rentada-thumbnail.png'
 images: [
     '/images/thumbnail/e-rentada-1.png',
+    '/images/thumbnail/e-rentada-2.png',
+    '/images/thumbnail/e-rentada-3.png',
+    '/images/thumbnail/e-rentada-4.png',
 ]
 stack: ['Next.js', 'TailwindCSS', 'ExpressJS', 'PostgreSQL']
 links: {
@@ -55,7 +58,7 @@ Kebutuhan utama adalah **platform terpusat** yang mampu menangani pemesanan dari
 **Integration:** e-STS NTB (Electronic Sistem Tata Kelola Keuangan Daerah)  
 **Role:** Full-Stack Software Engineer
 
-Saya membangun seluruh alur — mulai dari UI, API backend, validasi booking, hingga integrasi dengan sistem eksternal.
+Saya ikut membangun seluruh alur — mulai dari UI, API backend, validasi booking, hingga integrasi dengan sistem eksternal.
 
 ---
 
