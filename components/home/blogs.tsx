@@ -13,7 +13,7 @@ export default function Blogs() {
       <div className="w-full flex flex-col items-center gap-8 mb-32">
         <ComplexThings />
 
-        <p className="text-center text-pretty w-[376px]">
+        <p className="text-center text-pretty w-[376px] px-4">
           I explore how systems work and share the principles that make them
           easier to design, explain, and build.
         </p>
