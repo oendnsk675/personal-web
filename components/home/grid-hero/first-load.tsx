@@ -32,9 +32,9 @@ export default function FirstLoad() {
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         />
       </div>
-      <div className="flex justify-end">
-        <p>
-          Fast dev. <br /> Fast loads.
+      <div className="flex h-full items-end">
+        <p className='text-muted-foreground text-sm'>
+          Efficiency <br /> without haste.
         </p>
       </div>
     </div>

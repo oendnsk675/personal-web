@@ -17,16 +17,15 @@ export default function Footer() {
         <div className="w-full xl:max-w-6xl py-20 md:py-20 flex flex-col md:flex-row md:justify-between gap-11 md:gap-11 px-4 md:px-0">
           {/* footer basic information */}
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-4 mb-3">
               <Image
-                src="/vercel.svg"
+                src="/icons/logo-b.svg"
                 alt="Logo"
-                className="rotate-90"
-                width={20}
-                height={20}
+                width={28}
+                height={28}
               />
               <h4 className="text-xl font-semibold md:font-bold">
-                Sayidina Ahmadal Qososyi
+                S.A Qososyi
               </h4>
             </div>
             <p className="text-pretty text-muted-foreground mb-6">
@@ -106,7 +105,7 @@ export default function Footer() {
 
           <div className="flex-1">
             <h4 className="text-xl font-semibold md:font-bold mb-3">
-              Subscribe to Cozy blog newsletter
+              Subscribe to my blog newsletter
             </h4>
             <p className="text-pretty text-muted-foreground mb-6">
               {"Don\'t"} miss out 😉. Get an email whenever I post, no spam.

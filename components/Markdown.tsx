@@ -6,17 +6,17 @@ import LinkNode from '@/components/mdx/LinkNode';
 import ListItemNode from '@/components/mdx/ListItemNode';
 import ListNode from '@/components/mdx/ListNode';
 import Paragraph from '@/components/mdx/Paragraph';
-import Preformatted from '@/components/mdx/Preformatted';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import MarkdownPre from './mdx/markdown-pre';
 
 interface MarkdownProps {
   children: string;
 }
 
 const inlineCodeStyle = {
-  backgroundColor: '#f0f0f0',
+  backgroundColor: '#292C35',
   padding: '2px 4px',
   borderRadius: '4px',
   fontFamily: 'monospace',
@@ -40,8 +40,6 @@ const renderHeading = (level: number) => {
       ?.toLowerCase()
       .replace(/[^\w\s-]/g, '')
       .replace(/\s+/g, '-');
-
-    console.log();
 
     return (
       <Heading id={id} level={level} {...props}>
@@ -89,9 +87,7 @@ const renderers: Components = {
     </ListNode>
   ),
   p: ({ children, ...props }) => <Paragraph {...props}>{children}</Paragraph>,
-  pre: ({ children, ...props }) => (
-    <Preformatted {...props}>{children}</Preformatted>
-  ),
+  pre: ({ children }) => <MarkdownPre>{children}</MarkdownPre>,
   blockquote: ({ children, ...props }) => (
     <blockquote className="border-l-4 border-emerald-300 pl-4" {...props}>
       {children}

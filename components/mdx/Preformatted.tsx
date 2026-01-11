@@ -2,11 +2,12 @@
 import React from 'react';
 
 export interface PreformattedProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
+  className?: string;
 }
 
-const Preformatted: React.FC<PreformattedProps> = ({ children }) => (
-	<pre>{children}</pre>
+const Preformatted: React.FC<PreformattedProps> = ({ children, className }) => (
+  <pre className={className}>{children}</pre>
 );
 
 export default Preformatted;

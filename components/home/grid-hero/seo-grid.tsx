@@ -35,7 +35,7 @@ export default function SeoGrid() {
           SEO
         </motion.h1>
       </div>
-      <p className="text-center text-pretty relative z-20">
+      <p className="text-center text-sm text-pretty text-muted-foreground relative z-20">
         No more hiding. Specialist SEO.
       </p>
     </div>

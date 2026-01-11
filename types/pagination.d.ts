@@ -1,3 +1,5 @@
+import { TBlogFilter, TBlogSortBy } from './blog';
+
 export type TPaginated<T> = {
   data: T[];
   meta: TPaginationMeta;
@@ -13,5 +15,7 @@ export type TPaginationMeta = {
 export type TPaginationQuery = {
   page?: number;
   limit?: number;
-  order?: 'asc' | 'desc';
+  filter?: TBlogFilter;
+  sort?: 'asc' | 'desc';
+  sortBy?: TBlogSortBy;
 };

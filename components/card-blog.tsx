@@ -4,6 +4,7 @@ import { TBlogMarkdown } from '@/types/blog';
 import { Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import BlogCategories from './blog-categories';
 import ViewCounter from './blog/view-counter';
 import LineLights from './pattern/line-lights';
 
@@ -25,14 +26,18 @@ export default function CardBlog({ content }: TContent) {
       {/* left */}
       <div className="flex-1 flex flex-col gap-3 relative z-20">
         {/* date */}
-        <span className="text-sm">{getDateFormat(content.date)}</span>
+        <span className="text-sm text-muted-foreground">
+          {getDateFormat(content.date)}
+        </span>
         {/* title and summary */}
         <div className="flex flex-col gap-1 md:mb-4">
           <div className="relative w-fit">
             <div className="opacity-0 group-hover:opacity-100 absolute -z-10 inset-0 w-full h-full bg-linear-to-r from-transparent via-emerald-500/50 to-transparent transition-all duration-150"></div>
             <h4 className="text-lg font-bold">{content.title}</h4>
           </div>
-          <p className="text-pretty">{content.description}</p>
+          <p className="text-pretty text-muted-foreground">
+            {content.description}
+          </p>
         </div>
 
         {/* metadata */}
@@ -50,16 +55,12 @@ export default function CardBlog({ content }: TContent) {
             </div>
           </div>
 
-          {/* views */}
-          <div className="flex flex-wrap md:justify-end items-center gap-2 md:w-1/2">
-            {content?.categories?.map((category) => (
-              <div
-                key={category}
-                className="p-0.5 px-4 text-xs rounded bg-emerald-900/50"
-              >
-                {category}
-              </div>
-            ))}
+          {/* categories */}
+          <div className="flex flex-wrap md:justify-end items-center gap-2 md:w-2/3">
+            <BlogCategories
+              key={'blog-categories'}
+              categories={content.categories}
+            />
           </div>
         </div>
       </div>
