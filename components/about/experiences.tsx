@@ -157,7 +157,8 @@ const data = [
             {/* description */}
             <p>
               I work as a software engginer intern focused on building web
-              applications using the ASP.NET Framework, below is what I've done:
+              applications using the ASP.NET Framework, below is what I&apos;ve
+              done:
             </p>
             <ul className="list-disc list-inside mb-4">
               <li className="text-pretty">
@@ -201,7 +202,10 @@ const data = [
           {/* description and gallery */}
           <div className="text-muted-foreground">
             {/* description */}
-            <p>working as a frontend web developer, here's what I've done:</p>
+            <p>
+              working as a frontend web developer, here&apos;s what I&apos;ve
+              done:
+            </p>
             <ul className="list-disc list-inside mb-4">
               <li className="text-pretty">
                 Designed and implemented responsive desktop and mobile views for
