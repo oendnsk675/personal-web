@@ -78,9 +78,9 @@ export default function SelfIntro() {
         </div>
         <div className="text-pretty text-muted-foreground flex flex-col gap-4 mb-6">
           <p>
-            Hello, you can call me Cozy. I'm a software engineer working within
-            the React ecosystem. I care deeply about building software with
-            intention, treating code as a craft, not just a tool. Through
+            Hello, you can call me Cozy. I&apos;m a software engineer working
+            within the React ecosystem. I care deeply about building software
+            with intention, treating code as a craft, not just a tool. Through
             writing, I try to help others rebuild their understanding of
             fundamentals and see them through clearer mental models.
           </p>
@@ -95,8 +95,8 @@ export default function SelfIntro() {
             Writing became part of my learning practice. I use it to slow down,
             reflect, and refine my understanding. What started as personal notes
             eventually turned into articles shared here. If these writings help
-            you think more clearly, or build with more care, then they've done
-            their job.
+            you think more clearly, or build with more care, then they&apos;ve
+            done their job.
           </p>
         </div>
 

@@ -55,7 +55,7 @@ export async function getAllBlogs({
   } else {
     const files = fs.readdirSync(BLOG_DIR);
 
-    let blogs = files
+    const blogs = files
       .map((filename) => {
         const filePath = path.join(BLOG_DIR, filename);
         const file = fs.readFileSync(filePath, 'utf-8');

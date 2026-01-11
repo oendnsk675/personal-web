@@ -28,7 +28,7 @@ const sortOptions = [
 ];
 
 export default function Projects() {
-  const { data: projects } = getAllProjects({ limit: 10, order: 'desc' });
+  const { data: projects } = getAllProjects({ limit: 10, sort: 'desc' });
   return (
     <div className="w-full relative flex flex-col items-center">
       {/* HEADER BLOG */}
@@ -48,7 +48,7 @@ export default function Projects() {
           secondWord="Projects"
         />
         <p className="text-center mb-2 relative z-20 bg-linear-to-r from-neutral-600 via-neutral-50 to-neutral-600 bg-clip-text text-transparent">
-          Showcase of my projects that {"I\'m"} proud of.
+          Showcase of my projects that {"I'm"} proud of.
         </p>
       </div>
 
