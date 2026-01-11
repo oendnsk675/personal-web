@@ -230,7 +230,7 @@ const data = [
 export default function Experiences() {
   return (
     <div className="relative">
-      <Experience className="absolute z-10 md:w-full inset-x-0 -inset-20" />
+      <Experience className="hidden md:absolute z-10 md:w-full inset-x-0 -inset-20" />
       <Timeline data={data} />
     </div>
   );

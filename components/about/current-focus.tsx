@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 export default function CurrentFocus() {
   return (
-    <div className="border rounded-2xl p-7 flex justify-between gap-6 mb-44 relative">
-      <div className="w-2/5 flex items-center gap-4">
+    <div className="border rounded-2xl p-8 flex flex-col md:flex-row items-center md:justify-between gap-6 mb-44 relative">
+      <div className="w-full md:w-2/5 flex justify-center md:justify-start items-center gap-4">
         <div className="w-fit rounded-lg border bg-neutral-900 p-2 relative z-20">
           <CircleQuestionMark className="opacity-75" />
         </div>
-        <h3 className="text-xl font-semibold">What I'm up to now</h3>
+        <h3 className="text-xl  font-semibold">What I'm up to now</h3>
       </div>
       <div className="flex-1">
         <ul className="text-muted-foreground list-disc">

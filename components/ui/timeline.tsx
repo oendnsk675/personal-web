@@ -1,5 +1,6 @@
 'use client';
 import { formatDateMonthYear } from '@/lib/utils';
+import { BriefcaseBusiness } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -36,11 +37,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-6 px-4 md:px-0">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          Here&apos;s a timeline of my journey.
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-fit rounded-lg border bg-neutral-900 p-2 relative z-20">
+            <BriefcaseBusiness className="size-4 opacity-75" />
+          </div>
+          <h2 className="text-lg md:text-4xl text-black dark:text-white max-w-4xl">
+            Changelog from my journey
+          </h2>
+        </div>
+        <p className="text-neutral-700 text-pretty dark:text-neutral-300 text-sm md:text-base max-w-sm">
+          A quiet log of growth—where each step reflects learning, refinement,
+          and intention.
         </p>
       </div>
 

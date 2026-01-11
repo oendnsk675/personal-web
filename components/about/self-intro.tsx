@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { FaGolang } from 'react-icons/fa6';
-import {
-  SiExpress,
-  SiMongodb,
-  SiNestjs,
-  SiNextdotjs,
-  SiPostgresql,
-  SiVuedotjs,
-} from 'react-icons/si';
+import { SiExpress, SiNestjs, SiNextdotjs, SiVuedotjs } from 'react-icons/si';
 import { ElysiaDark } from '../icons/elysia';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { PhotoCard } from './photo-card';
@@ -61,34 +54,18 @@ const skils = [
     iconSm: <SiNestjs className="size-4 text-white" />,
     link: 'https://nestjs.com/',
   },
-  {
-    title: 'MongoDB',
-    description:
-      'Perfect for evolving products where flexibility matters more than rigid schemas.',
-    icon: <SiMongodb className="size-6 text-white" />,
-    iconSm: <SiMongodb className="size-4 text-white" />,
-    link: 'https://www.mongodb.com/',
-  },
-  {
-    title: 'PostgreSQL',
-    description:
-      'My default choice for data integrity, complex queries, and long-term reliability.',
-    icon: <SiPostgresql className="size-6 text-white" />,
-    iconSm: <SiPostgresql className="size-4 text-white" />,
-    link: 'https://www.postgresql.org/',
-  },
 ];
 
 export default function SelfIntro() {
   return (
-    <div className="flex justify-between gap-6 mb-44">
+    <div className="flex flex-col md:flex-row items-center md:justify-between gap-6 mb-44">
       {/* photo card */}
-      <div className="w-2/5 flex justify-start -mt-10">
+      <div className="w-full md:w-2/5 flex justify-center md:justify-start -mt-10">
         <PhotoCard />
       </div>
 
       {/* description */}
-      <div className="flex-1 ">
+      <div className="w-full md:flex-1">
         <h1 className="text-3xl font-bold mb-2">Sayidina Ahmadal Qososyi</h1>
         <div className="flex gap-2 text-muted-foreground mb-6">
           <span>Full-stack Web Developer at</span>
