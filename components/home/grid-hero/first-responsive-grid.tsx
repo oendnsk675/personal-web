@@ -19,8 +19,8 @@ export default function FirstResponsiveGrid() {
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       ></motion.div>
-      <p className="text-center text-pretty">
-        Bespoke, <br /> responsive-first design
+      <p className="text-center text-sm text-pretty text-muted-foreground mt-2">
+        Built responsively, <br /> shaped deliberately
       </p>
       <div className="absolute bottom-0 right-0 w-full flex justify-center">
         <ResponsiveFirstDesignSVG isHovered={isHovered} />

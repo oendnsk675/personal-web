@@ -1,4 +1,5 @@
 import { getAllBlogs } from '@/lib/content/getAll';
+import { TBlogFilter, TBlogSortBy } from '@/types/blog';
 import CardBlog from '../card-blog';
 import {
   Pagination,
@@ -10,8 +11,21 @@ import {
   PaginationPrevious,
 } from '../ui/pagination';
 
-export default function ListBlog({ page }: { page: number }) {
-  const { data, meta } = getAllBlogs({ page });
+export default async function ListBlog({
+  page,
+  sortBy,
+  filter,
+}: {
+  page: number;
+  sortBy: TBlogSortBy;
+  filter?: TBlogFilter;
+}) {
+  const { data, meta } = await getAllBlogs({
+    page,
+    filter: filter,
+    sort: 'desc',
+    sortBy: sortBy,
+  });
   const { totalPages } = meta;
 
   return (

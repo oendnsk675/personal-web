@@ -1,33 +1,34 @@
+import FilterTopic from '@/components/blog/filter-topic';
 import HeaderLight from '@/components/blog/header-light';
 import ListBlog from '@/components/blog/list-blog';
+import SelectSort from '@/components/blog/select-sort';
+import CardBlogSekleton from '@/components/card-blog-sekleton';
 import Fancytext from '@/components/fancy-text';
 import NewsletterPattern from '@/components/pattern/newsletter-pattern';
-import RichSelect from '@/components/rich-select';
+import SearchInput from '@/components/search-input';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar, Eye, TerminalIcon } from 'lucide-react';
+import { getAllBlogTopic } from '@/lib/content/getAllTopic';
+import { TBlogSortBy } from '@/types/blog';
+import { ArrowRight, TerminalIcon } from 'lucide-react';
 import Link from 'next/link';
-
-const sortOptions = [
-  {
-    value: 'views',
-    label: 'Sort by views',
-    icon: <Eye className="h-4 w-4" />,
-  },
-  {
-    value: 'dates',
-    label: 'Sort by date',
-    icon: <Calendar className="h-4 w-4" />,
-  },
-];
+import { Suspense } from 'react';
 
 export default async function Blog(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
+    sortBy?: string;
+    topic?: string;
+    title?: string;
   }>;
 }) {
   const searchParams = await props.searchParams;
   const page = Number(searchParams?.page) || 1;
+  const sortBy: TBlogSortBy = (searchParams?.sortBy as TBlogSortBy) || 'views';
+  const topic: string | undefined = searchParams?.topic;
+  const title: string | undefined = searchParams?.title;
+
+  const topics: string[] = getAllBlogTopic();
 
   return (
     <div className="w-full relative flex flex-col items-center">
@@ -49,36 +50,22 @@ export default async function Blog(props: {
         <p className="text-center mb-2 relative z-20 bg-linear-to-r from-neutral-600 via-neutral-50 to-neutral-600 bg-clip-text text-transparent">
           Thoughts, mental models, and tutorials about front-end development.
         </p>
+        <SearchInput key={'search-input'} />
       </div>
 
       {/* content */}
       <main className="xl:max-w-6xl px-4 lg:px-0 relative min-h-[150vh] flex flex-col-reverse md:flex-row gap-4 md:gap-0 md:items-start">
         {/* left */}
         <section className="w-full md:w-3/4 min-h-[150vh] pb-6 md:pr-6 md:border-r">
-          <ListBlog page={page} />
+          <Suspense fallback={<CardBlogSekleton />}>
+            <ListBlog page={page} sortBy={sortBy} filter={{ topic, title }} />
+          </Suspense>
         </section>
         {/* right */}
         <section className="block md:sticky left-0 top-8 md:mb-16 w-full md:flex-1 md:pb-6 md:pt-6 md:pl-6">
-          <RichSelect
-            options={sortOptions}
-            placeholder="Sort by"
-            className="mb-8"
-          />
+          <SelectSort key={'select-sort'} defaultValue={sortBy} />
 
-          <div className="mb-8">
-            <h4 className="font-semibold mb-4">Choose topics</h4>
-            <div className="flex items-center flex-wrap gap-1">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                <Link
-                  href="#"
-                  key={item}
-                  className="p-1 px-2 bg-white/5 rounded-xl text-sm cursor-custom"
-                >
-                  Topic {item}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <FilterTopic key={'filter-topic'} value={topic} options={topics} />
 
           <div className="">
             <h4 className="font-semibold mb-4">Read in other language?</h4>

@@ -16,7 +16,7 @@ export default function SingleTouchpoint() {
     >
       {/* lights */}
       <motion.div
-        className="absolute bottom-0 left-0 h-full w-full bg-linear-to-b from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% z-10"
+        className="absolute bottom-0 left-0 h-full w-full bg-linear-to-bl from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-40% to-[rgba(21,89,65,0.30)] to-95% z-10"
         initial={{ opacity: 0 }}
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0 }}
         transition={{ duration: 1, ease: 'easeInOut' }}
@@ -46,8 +46,8 @@ export default function SingleTouchpoint() {
         height={107}
         alt="fast-dev.svg"
         className="absolute z-30 bottom-4 left-4"
-        initial={{ rotate: 0 }}
-        animate={{ rotate: isHovered ? -30 : 0 }}
+        initial={{ rotate: 0, opacity: 0.4 }}
+        animate={{ rotate: isHovered ? -30 : 0, opacity: isHovered ? 100 : 0.4 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       />
       <ExcoticImageComponent
@@ -66,15 +66,15 @@ export default function SingleTouchpoint() {
         height={200}
         alt="fast-dev.svg"
         className="absolute -bottom-12 -right-4 -rotate-12"
-        initial={{ rotate: 0 }}
-        animate={{ rotate: isHovered ? 5 : 0 }}
+        initial={{ rotate: 0, opacity: 0.4}}
+        animate={{ rotate: isHovered ? 5 : 0, opacity: isHovered ? 100 : 0.4 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
         style={{
           transformOrigin: 'top right',
         }}
       />
       <div className="relative z-30">
-        <p>
+        <p className='text-muted-foreground text-sm'>
           Single touchpoint. <br /> Genuine collaboration.
         </p>
       </div>

@@ -1,5 +1,7 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
 import css from 'react-syntax-highlighter/dist/esm/languages/prism/css';
 import js from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
 import ts from 'react-syntax-highlighter/dist/esm/languages/prism/typescript';
@@ -10,6 +12,7 @@ import styles from './CodeBlock.module.css';
 SyntaxHighlighter.registerLanguage('typescript', ts);
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('css', css);
+SyntaxHighlighter.registerLanguage('bash', bash);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CustomSyntaxHighlighter = SyntaxHighlighter as unknown as React.FC<any>;
@@ -40,7 +43,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ className, children }) => {
     .join('');
 
   return (
-    <div className={styles.customCode}>
+    <div className={cn(styles.customCode)}>
       <CustomSyntaxHighlighter language={language} style={oneDark} PreTag="div">
         {codeString}
       </CustomSyntaxHighlighter>

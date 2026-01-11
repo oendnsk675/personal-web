@@ -23,15 +23,13 @@ export default function Hero() {
         <div className="max-w-120 grid gap-8">
           <div className="grid gap-7">
             <h1 className="text-5xl 2xl:text-7xl font-bold">{"I\'m"} Cozy</h1>
-            <p className="">
-              I craft premium websites for creators, entrepreneurs and startups
-              who want to convert clients, drive serious revenue and stand out
-              in an ever-crowding market.
+            <p className="text-pretty text-muted-foreground">
+              I build software the way a craftsman shapes stone—<br />slow, deliberate, and with respect for every cut.
             </p>
           </div>
           <div className="flex gap-4">
             <Button variant={'outline'} size={'lg'}>
-              Learn How
+              Read my notes
             </Button>
             <Button size={'lg'}>More about me</Button>
           </div>
@@ -39,30 +37,30 @@ export default function Hero() {
             <a
               href="https://github.com/oendnsk675"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150 cursor-custom"
+              className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
-              <Github size={20} strokeWidth={0.8} />
+              <Github size={20} strokeWidth={1} />
             </a>
             <a
               href="https://app.daily.dev/sayidinaahmadalqososyi"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150 cursor-custom"
+              className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={dailyDev} alt="Logo Daily Dev" />
             </a>
             <a
               href="https://bsky.app/profile/oslab19.bsky.social"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150 cursor-custom"
+              className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={bsky} alt="Logo Bsky" />
             </a>
             <a
               href="https://www.instagram.com/oslab19/"
               target="_blank"
-              className="hover:opacity-75 transition-all duration-150 cursor-custom"
+              className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
-              <Instagram size={20} strokeWidth={0.8} />
+              <Instagram size={20} strokeWidth={1} />
             </a>
           </div>
         </div>

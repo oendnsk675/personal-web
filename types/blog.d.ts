@@ -14,3 +14,10 @@ export type TBlogMarkdown = TBlogFrontmatter & {
 };
 
 export type TBlogPaginated = TPaginated<TBlogMarkdown>;
+
+export type TBlogSort = 'asc' | 'desc';
+export type TBlogSortBy = 'views' | 'dates';
+export type TBlogFilter = {
+  title?: string;
+  topic?: string;
+};
