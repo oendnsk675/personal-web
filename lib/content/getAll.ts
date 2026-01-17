@@ -1,5 +1,5 @@
 import { TBlogFrontmatter, TBlogMarkdown, TBlogPaginated } from '@/types/blog';
-import { TNoteFrontmatter, TNotePaginated } from '@/types/notes';
+import { TNoteFrontmatter, TNoteMarkdown, TNotePaginated } from '@/types/notes';
 import { TPaginationQuery } from '@/types/pagination';
 import { TProjectFrontmatter, TProjectPaginated } from '@/types/project';
 import fs from 'fs';
@@ -84,7 +84,7 @@ export async function getAllBlogs({
     blogs.sort((a, b) =>
       sort === 'asc'
         ? a.date.localeCompare(b.date)
-        : b.date.localeCompare(a.date)
+        : b.date.localeCompare(a.date),
     );
 
     // --- PAGINATION ---
@@ -130,7 +130,7 @@ export function getAllProjects({
   data.sort((a, b) =>
     sort === 'asc'
       ? a.title.localeCompare(b.title)
-      : b.title.localeCompare(a.title)
+      : b.title.localeCompare(a.title),
   );
 
   // --- PAGINATION ---
@@ -153,29 +153,36 @@ export function getAllNotes({
   page = 1,
   limit = 10,
   sort = 'asc',
+  filter = { title: '', topic: '' },
 }: TPaginationQuery): TNotePaginated {
   const files = fs.readdirSync(NOTE_DIR);
 
-  let data = files.map((filename) => {
-    const filePath = path.join(NOTE_DIR, filename);
-    const file = fs.readFileSync(filePath, 'utf-8');
-    const parsed = matter(file);
-    const data = parsed.data as TNoteFrontmatter;
-    const content = parsed.content;
-    const slug = filename.replace('.md', '');
+  let data = files
+    .map((filename) => {
+      const filePath = path.join(NOTE_DIR, filename);
+      const file = fs.readFileSync(filePath, 'utf-8');
+      const parsed = matter(file);
+      const data = parsed.data as TNoteFrontmatter;
+      const content = parsed.content;
+      const slug = filename.replace('.md', '');
 
-    return {
-      ...data,
-      slug,
-      content,
-    };
-  });
+      if (filter.title && !matchTitle(data.title, filter.title)) {
+        return null;
+      }
+
+      return {
+        ...data,
+        slug,
+        content,
+      };
+    })
+    .filter(Boolean) as TNoteMarkdown[];
 
   // --- ORDERING ---
   data.sort((a, b) =>
     sort === 'asc'
       ? a.title.localeCompare(b.title)
-      : b.title.localeCompare(a.title)
+      : b.title.localeCompare(a.title),
   );
 
   // --- PAGINATION ---
