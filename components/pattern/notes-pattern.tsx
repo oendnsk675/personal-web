@@ -2,7 +2,7 @@ import { formatDate } from '@/lib/utils';
 
 export default function NotesPattern({
   notes,
-  date,
+  date = new Date().toISOString(),
 }: {
   notes?: string;
   date?: string;
