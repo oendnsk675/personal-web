@@ -67,7 +67,7 @@ export default async function Blog(props: {
 
           <FilterTopic key={'filter-topic'} value={topic} options={topics} />
 
-          <div className="">
+          <div className="hidden">
             <h4 className="font-semibold mb-4">Read in other language?</h4>
             <div className="flex items-center flex-wrap gap-1">
               <Link

@@ -94,7 +94,7 @@ Inilah kenapa banyak yang bilang frontend berubah total.
 Hari ini, urusan data berarti:
 
 - Caching: kapan harus menyimpan data?
-- Revalidation: siapa sumber kebenaran data?
+- Revalidation: siapa source of truth?
 - Optimistic update: update dulu, rollback kalau gagal
 - Offline mode & syncing: harus tetap usable meski internet mati
 
@@ -151,7 +151,7 @@ Tidak harus jago semua hal, tapi harus melihat gambaran besar.
 
 Kalau kamu frontend dev dan suka UI, ada dua jalur:
 
-### 1. Memperluas Keahlian
+### 1. Expand Keahlian
 
 Belajar:
 
@@ -160,7 +160,7 @@ Belajar:
 - Rendering strategy
 - Integrasi UI + server logic
 
-### 2. Spesialisasi Mendalam
+### 2. Deep Specialization
 
 Menjadi ahli dalam:
 

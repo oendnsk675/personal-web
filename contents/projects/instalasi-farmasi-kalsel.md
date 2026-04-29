@@ -120,8 +120,6 @@ Kontribusi saya mencakup pengembangan UI, desain sistem backend, integrasi API, 
 - Data obat yang sebelumnya tersebar kini **tersentralisasi dan konsisten**.
 - Petugas dapat memantau status stok dan permintaan dengan lebih akurat.
 
-**Live App:** https://ifk-kalsel.bimajaya.co.id
-
 ---
 
 > ## Refleksi & Pembelajaran

@@ -4,7 +4,7 @@ title: "PC Platform"
 description: "An e-learning platform developed for the Bumigora programming community, featuring interactive learning modules and a custom-built code playground used in the PC Challenge competitive programming event."
 thumbnail: "/images/thumbnail/pcp-thumbnail.png"
 images:
-  - "/images/thumbnail/pcp-1.png"
+  - "/images/thumbnail/pc-1.webp"
 stack: ["Vue.js", "TailwindCSS", "ExpressJS", "PostgreSQL"]
 links:
   code: ""

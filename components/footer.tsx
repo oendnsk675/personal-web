@@ -59,13 +59,13 @@ export default function Footer() {
                   <Link href="/">Home</Link>
                 </li>
                 <li>
-                  <Link href="/">Blogs</Link>
+                  <Link href="/blogs">Blogs</Link>
                 </li>
                 <li>
-                  <Link href="/">Projects</Link>
+                  <Link href="/projects">Projects</Link>
                 </li>
                 <li>
-                  <Link href="/">Notes</Link>
+                  <Link href="/notes">Notes</Link>
                 </li>
               </ul>
             </div>
@@ -75,13 +75,10 @@ export default function Footer() {
               </span>
               <ul className="grid gap-2">
                 <li>
-                  <Link href="/">Bucket List</Link>
+                  <Link href="/">Team Sync</Link>
                 </li>
                 <li>
-                  <Link href="/">Users</Link>
-                </li>
-                <li>
-                  <Link href="/">Guest Book</Link>
+                  <Link href="/">Ticket Generator</Link>
                 </li>
               </ul>
             </div>
@@ -94,7 +91,7 @@ export default function Footer() {
                   <Link href="/">Book Notes</Link>
                 </li>
                 <li>
-                  <Link href="/">Starter Templates</Link>
+                  <Link href="/">My Algoviz</Link>
                 </li>
                 <li>
                   <Link href="/">RSS</Link>
@@ -112,7 +109,7 @@ export default function Footer() {
             </p>
 
             <Button variant={'outline'}>
-              <span>View Project</span>
+              <span>Subscribe Now</span>
               <p className="w-7 h-7 rounded-lg border flex items-center justify-center">
                 <ArrowRight size={16} />
               </p>
