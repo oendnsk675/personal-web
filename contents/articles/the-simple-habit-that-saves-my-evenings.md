@@ -2,36 +2,36 @@
 title: 'The Simple Habit That Saves My Evenings'
 date: 2025/09/28
 thumbnail: '/images/thumbnail/36ce36174eefcf15a1b66c8d5716e5da.webp'
-description: 'Sebuah kebiasaan kecil yang selalu menyelamatkan waktuku di malam hari—dan menjaga keseimbangan antara kerja dan hidup sebagai software engineer.'
+description: 'Sebuah kebiasaan kecil yang selalu menyelamatkan waktuku di malam hari—dan menjaga work-life balance as a software engineer.'
 categories:
   ['work-life balance', 'productivity', 'software engineering', 'habits']
 ---
 
 # Introduction
 
-Sebagai seorang software engineer, kita semua tau rasanya ketika pekerjaan lagi banyak-banyaknya, sementara waktu fokus tanpa gangguan itu rasanya kayak barang mewah. Slack bunyi, meeting datang tiba-tiba, ada yang ngajak ngopi, atau kadang otak sendiri udah capek duluan sebelum kerjaan selesai.
+Sebagai seorang software engineer, kita semua tau rasanya ketika pekerjaan lagi banyak-banyaknya, sementara waktu fokus tanpa gangguan itu rasanya kayak barang mewah. Slack bunyi, meeting datang tiba-tiba, ada yang keluar, atau kadang otak sendiri udah capek duluan sebelum kerjaan selesai.
 
 Tapi anehnya, sering kali _flow kerja paling produktif_ justru datang di akhir hari kerja. Dan di situlah masalah biasanya dimulai.
 
 ### The "20 Minutes" Trap
 
-Kamu pasti pernah mengalami momen ketika akhirnya nemu solusi elegan buat bug yang udah kamu kejar seharian. Semangat naik, adrenalin jalan, dan kamu berpikir:
+Kamu pasti pernah ngalamin momen ketika akhirnya nemu solusi elegan buat bug yang udah kamu kejar seharian. Semangat naik, adrenalin jalan, dan kamu berpikir:
 
 > "20 menit lagi deh, pasti kelar kok."
 
 Padahal… ya kamu tau sendiri. Bukannya 20 menit, tapi 2–3 jam. Tiba-tiba kamu sadar sudah malam, kamu lapar, lelah, dan ironisnya: solusi yang kamu pikir akan selesai cepat malah makin banyak edge case-nya.
 
-Yang lebih parah—kamu pulang dalam kondisi drained dan mulai hari besok dengan energi sisa.
+Yang lebih parah—kamu berenti kerja dalam kondisi drained dan mulai hari besok dengan energi sisa.
 
 ### Pengalaman Pribadi dari Masa Startup
 
-Aku ngalamin hal ini sekitar 5 tahun lalu saat kerja di sebuah startup yang lagi cepat banget tumbuhnya. Suasana kantor seru, semua orang ngebut, dan lembur jadi hal yang biasa.
+Aku ngalamin hal ini sekitar beberapa tahun yang lalu saat join di sebuah startup yang lagi akslerasi. Suasana environment kerja seru, semua orang ngebut, dan commit baru bisa sampai per 20 menit tiap hari.
 
 Suatu malam, aku merasa akhirnya berhasil memecahkan bagian sulit dari infrastruktur yang lagi aku garap. Pikiran pertama: _"Ah, 20 menit lagi kelar nih."_
 
-Tapi 20 menit itu berubah jadi lebih dari 3 jam. Aku pulang ke apartemen dalam kondisi capek dan kesal—dan hasilnya? Nyaris nggak ada progress.
+Tapi 20 menit itu berubah jadi lebih dari 3 jam. Aku berenti kerja dalam kondisi capek dan kesal, dan hasilnya? Nyaris nggak ada progress.
 
-Keesokan paginya, pas jalan ke kantor aku sadar kondisi tubuhku: capek duluan sebelum mulai. Saat itu juga aku ngerti satu hal penting: lebih baik berhenti, tulis langkah selanjutnya, dan selesaikan besok.
+Keesokan paginya, pas mulai kerja, aku sadar kondisi tubuhku: capek duluan sebelum mulai. Saat itu juga aku ngerti satu hal penting: lebih baik berhenti, tulis langkah selanjutnya, dan selesaikan besok.
 
 ### Tapi Gimana Kalau Benar-Benar Bisa Kelar 20 Menit?
 
@@ -68,7 +68,7 @@ Overworking tidak membuatmu lebih produktif. Justru bikin kamu lambat esok harin
 
 Begitu kamu tuangkan pikiran ke tulisan, otakmu menganggap masalah itu “sementara selesai,” sehingga kamu bisa bener-bener off.
 
-Aku sudah melakukan kebiasaan ini lebih dari 5 tahun, dan jujur—ini salah satu alasan kenapa aku bisa menjaga work-life balance dengan cukup stabil.
+Aku sudah melakukan kebiasaan ini lebih dari 2 tahun, dan jujur—ini salah satu alasan kenapa aku bisa sedikit menjaga work-life balance dengan cukup stabil.
 
 ---
 

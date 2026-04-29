@@ -3,6 +3,7 @@ import Image from 'next/image';
 import bsky from '@/public/icons/bsky.svg';
 import dailyDev from '@/public/icons/daily-dev.svg';
 import { Github, Instagram } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import FirstLoad from './grid-hero/first-load';
 import FirstResponsiveGrid from './grid-hero/first-responsive-grid';
@@ -24,14 +25,20 @@ export default function Hero() {
           <div className="grid gap-7">
             <h1 className="text-5xl 2xl:text-7xl font-bold">{"I\'m"} Cozy</h1>
             <p className="text-pretty text-muted-foreground">
-              I build software the way a craftsman shapes stone—<br />slow, deliberate, and with respect for every cut.
+              I build software the way a craftsman shapes stone—
+              <br />
+              slow, deliberate, and with respect for every cut.
             </p>
           </div>
           <div className="flex gap-4">
-            <Button variant={'outline'} size={'lg'}>
-              Read my notes
-            </Button>
-            <Button size={'lg'}>More about me</Button>
+            <Link href={'/blogs'}>
+              <Button variant={'outline'} size={'lg'}>
+                Read my blogs
+              </Button>
+            </Link>
+            <Link href={'/about'}>
+              <Button size={'lg'}>More about me</Button>
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <a

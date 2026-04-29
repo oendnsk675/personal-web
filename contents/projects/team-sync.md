@@ -4,7 +4,7 @@ title: "Team Sync"
 description: "A project management platform inspired by ClickUp and Trello, built with Next.js and NestJS to support real-time task tracking, team collaboration, and structured workflow management."
 thumbnail: "/images/thumbnail/ts-thumbnail.png"
 images:
-  - "/images/thumbnail/ts-1.png"
+  - "/images/thumbnail/ts-1.webp"
 stack: ["Next.js", "TailwindCSS", "NestJS", "PostgreSQL"]
 links:
   code: ""

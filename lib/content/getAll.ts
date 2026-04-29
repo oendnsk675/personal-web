@@ -1,7 +1,11 @@
 import { TBlogFrontmatter, TBlogMarkdown, TBlogPaginated } from '@/types/blog';
 import { TNoteFrontmatter, TNoteMarkdown, TNotePaginated } from '@/types/notes';
 import { TPaginationQuery } from '@/types/pagination';
-import { TProjectFrontmatter, TProjectPaginated } from '@/types/project';
+import {
+  TProjectFrontmatter,
+  TProjectMarkdown,
+  TProjectPaginated,
+} from '@/types/project';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
@@ -81,11 +85,19 @@ export async function getAllBlogs({
       .filter(Boolean) as TBlogMarkdown[];
 
     // --- ORDERING ---
-    blogs.sort((a, b) =>
-      sort === 'asc'
-        ? a.date.localeCompare(b.date)
-        : b.date.localeCompare(a.date),
-    );
+    if (sortBy == 'title') {
+      data.sort((a, b) =>
+        sort === 'asc'
+          ? a.title.localeCompare(b.title)
+          : b.title.localeCompare(a.title),
+      );
+    } else if (sortBy == 'dates') {
+      data.sort((a, b) =>
+        sort === 'asc'
+          ? a.date.localeCompare(b.date)
+          : b.date.localeCompare(a.date),
+      );
+    }
 
     // --- PAGINATION ---
     const startIndex = (page - 1) * limit;
@@ -108,30 +120,48 @@ export function getAllProjects({
   page = 1,
   limit = 10,
   sort = 'asc',
+  sortBy = 'title',
+  filter = { title: '', topic: '' },
 }: TPaginationQuery): TProjectPaginated {
   const files = fs.readdirSync(PROJECT_DIR);
+  const { title, topic } = filter;
 
-  let data = files.map((filename) => {
-    const filePath = path.join(PROJECT_DIR, filename);
-    const file = fs.readFileSync(filePath, 'utf-8');
-    const parsed = matter(file);
-    const data = parsed.data as TProjectFrontmatter;
-    const content = parsed.content;
-    const slug = filename.replace('.md', '');
+  let data = files
+    .map((filename) => {
+      const filePath = path.join(PROJECT_DIR, filename);
+      const file = fs.readFileSync(filePath, 'utf-8');
+      const parsed = matter(file);
+      const frontmatter = parsed.data as TBlogFrontmatter;
+      const data = parsed.data as TProjectFrontmatter;
+      const content = parsed.content;
+      const slug = filename.replace('.md', '');
 
-    return {
-      ...data,
-      slug,
-      content,
-    };
-  });
+      if (title && !matchTitle(frontmatter.title, title)) {
+        return null;
+      }
+
+      return {
+        ...data,
+        slug,
+        content,
+      };
+    })
+    .filter(Boolean) as TProjectMarkdown[];
 
   // --- ORDERING ---
-  data.sort((a, b) =>
-    sort === 'asc'
-      ? a.title.localeCompare(b.title)
-      : b.title.localeCompare(a.title),
-  );
+  if (sortBy == 'title') {
+    data.sort((a, b) =>
+      sort === 'asc'
+        ? a.title.localeCompare(b.title)
+        : b.title.localeCompare(a.title),
+    );
+  } else if (sortBy == 'dates') {
+    data.sort((a, b) =>
+      sort === 'asc'
+        ? a.date.localeCompare(b.date)
+        : b.date.localeCompare(a.date),
+    );
+  }
 
   // --- PAGINATION ---
   const startIndex = (page - 1) * limit;

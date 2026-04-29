@@ -1,7 +1,11 @@
 import HeaderLight from '@/components/blog/header-light';
+import SelectSort from '@/components/blog/select-sort';
+import CardProjectSekleton from '@/components/card-project-sekleton';
 import CardProject from '@/components/card-projects';
 import Fancytext from '@/components/fancy-text';
 import ProjectHeaderPattern from '@/components/pattern/project-header-pattern';
+import ListProject from '@/components/projects/list-projects';
+import SearchInput from '@/components/search-input';
 import {
   Pagination,
   PaginationContent,
@@ -12,7 +16,9 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { getAllProjects } from '@/lib/content/getAll';
+import { TBlogSortBy } from '@/types/blog';
 import { Calendar, Eye, Folder } from 'lucide-react';
+import { Suspense } from 'react';
 
 const sortOptions = [
   {
@@ -27,8 +33,20 @@ const sortOptions = [
   },
 ];
 
-export default function Projects() {
-  const { data: projects } = getAllProjects({ limit: 10, sort: 'desc' });
+export default async function Projects(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+    sortBy?: string;
+    topic?: string;
+    title?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  const page = Number(searchParams?.page) || 1;
+  const sortBy: TBlogSortBy = (searchParams?.sortBy as TBlogSortBy) || 'dates';
+  const title: string | undefined = searchParams?.title;
+
   return (
     <div className="w-full relative flex flex-col items-center">
       {/* HEADER BLOG */}
@@ -54,29 +72,21 @@ export default function Projects() {
 
       {/* content */}
       <main className="xl:max-w-6xl px-4 lg:px-0 relative flex flex-col gap-4 md:gap-0 md:items-start mb-12">
-        {projects.map((project, index) => (
-          <CardProject data={project} index={index} key={index} />
-        ))}
-
-        {/* paggination */}
-        <div className="w-full flex justify-center mt-8">
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious href="#" />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationEllipsis />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationNext href="#" />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+        <div className="flex gap-4 justify-center w-full">
+          <div className="w-fit">
+            <SearchInput key={'search-input'} />
+          </div>
+          <div className="w-fit">
+            <SelectSort key={'select-sort'} defaultValue={sortBy} />
+          </div>
         </div>
+
+        {/* cards */}
+        <section className="w-full">
+          <Suspense fallback={<CardProjectSekleton />}>
+            <ListProject page={page} sortBy={sortBy} filter={{ title }} />
+          </Suspense>
+        </section>
       </main>
     </div>
   );

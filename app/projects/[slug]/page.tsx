@@ -104,7 +104,7 @@ const ArticlePage = async (props: any) => {
                 <span>Repository</span>
               </Link>
               <Link
-                href={detailProject.links.code ?? '#'}
+                href={detailProject.links.live ?? '#'}
                 className={cn("flex gap-1.5 items-center text-xs text-muted-foreground hover:text-foreground transition-all duration-150", !detailProject.links.live && 'pointer-events-none opacity-50')}
               >
                 <Link2 size={14} />
