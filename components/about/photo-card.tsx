@@ -39,7 +39,7 @@ export function PhotoCard() {
           </div>
         </div>
         <div className="mt-2 p-2 text-white">
-          <div className="text-start font-tulisan text-2xl">Cozy</div>
+          <div className="text-start font-caveat text-2xl">Cozy</div>
           <UndelineHandwritten />
         </div>
       </button>

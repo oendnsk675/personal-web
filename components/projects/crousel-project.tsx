@@ -44,13 +44,13 @@ export default function CrouselProject({ items }: { items: string[] }) {
                       className="object-cover rounded-lg object-top"
                     />
                   </div>
-                  {/* <h1 className="font-tulisan text-3xl">Thumbnail</h1> */}
+                  {/* <h1 className="font-caveat text-3xl">Thumbnail</h1> */}
                 </CarouselItem>
               );
             } else {
               return (
                 <CarouselItem key={item}>
-                  <h1 className="font-tulisan text-3xl">Thumbnail</h1>
+                  <h1 className="font-caveat text-3xl">Thumbnail</h1>
                 </CarouselItem>
               );
             }

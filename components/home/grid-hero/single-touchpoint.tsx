@@ -60,14 +60,11 @@ export default function SingleTouchpoint() {
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       />
-      <ExcoticImageComponent
-        src="/images/moon-big.webp"
-        width={200}
-        height={200}
-        alt="fast-dev.svg"
-        className="absolute -bottom-12 -right-4 -rotate-12"
-        initial={{ rotate: 0, opacity: 0.4}}
-        animate={{ rotate: isHovered ? 5 : 0, opacity: isHovered ? 100 : 0.4 }}
+      <motion.div
+        aria-hidden="true"
+        className="absolute -bottom-12 -right-4 h-[200px] w-[200px] -rotate-12 bg-[url('/images/moon-big.webp')] bg-contain bg-no-repeat"
+        initial={{ rotate: 0, opacity: 0.4 }}
+        animate={{ rotate: isHovered ? 5 : 0, opacity: isHovered ? 1 : 0.4 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
         style={{
           transformOrigin: 'top right',

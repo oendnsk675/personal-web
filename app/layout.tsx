@@ -1,11 +1,17 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Caveat } from 'next/font/google';
 import './globals.css';
 
 const font = Inter({
   variable: '--font-inter',
+  display: 'swap',
+  subsets: ['latin'],
+});
+
+const fontCaveat = Caveat({
+  variable: '--font-caveat',
   display: 'swap',
   subsets: ['latin'],
 });
@@ -25,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${font.className}`}>
+    <html lang="en" className={`dark ${font.className} ${fontCaveat.variable}`}>
       <body
         className={`antialiased block xl:flex xl:flex-col items-center overflow-x-hidden`}
       >

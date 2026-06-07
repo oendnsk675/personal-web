@@ -1,6 +1,5 @@
 import { PATTERNS } from '@/components/pattern/project-pattern';
 import { Button } from '@/components/ui/button';
-import erentadaMockup from '@/public/images/erentada-mockup.svg';
 import { TProjectMarkdown } from '@/types/project';
 import { ArrowRight, Link2 } from 'lucide-react';
 import Image from 'next/image';
@@ -73,12 +72,19 @@ export default function CardProject({
       </div>
       {/* Right */}
       <div className="hidden md:block md:w-72 aspect-square border overflow-hidden rounded-lg relative p-6">
-        <Image
-          src={data.thumbnail || erentadaMockup}
-          fill
-          alt="erentada mockup"
-          className="w-full h-full object-cover"
-        />
+        {data.thumbnail ? (
+          <Image
+            src={data.thumbnail}
+            fill
+            alt={data.thumbnail}
+            sizes="288px"
+            className="object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-linear-150 from-[#2E996C]/30 to-[#0F3324]/30 flex items-center justify-center">
+            <h1 className="font-caveat text-3xl">Thumbnail</h1>
+          </div>
+        )}
       </div>
     </div>
   );

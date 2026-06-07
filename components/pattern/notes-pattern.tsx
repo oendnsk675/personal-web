@@ -29,7 +29,7 @@ export default function NotesPattern({
             <p className="c1 txt-tertiary flex items-baseline">
               <span className="inline-block min-w-[10ch] text-sm">Notes</span>
               <span className="flex flex-col">
-                <span className="inline-block w-32 line-clamp-1 truncate font-tulisan text-xl tracking-wider">
+                <span className="inline-block w-32 line-clamp-1 truncate font-caveat text-xl tracking-wider">
                   {notes ? notes : "Cozy's shorts"}
                 </span>
                 <span
@@ -41,7 +41,7 @@ export default function NotesPattern({
             </p>
             <p className="c1 txt-tertiary">
               <span className="inline-block text-sm min-w-[10ch]">Date</span>
-              <span className="font-tulisan text-xl leading-tight">
+              <span className="font-caveat text-xl leading-tight">
                 {date ? formatDate(date) : formatDate()}
               </span>
             </p>

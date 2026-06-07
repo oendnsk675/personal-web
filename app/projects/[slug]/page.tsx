@@ -118,7 +118,7 @@ const ArticlePage = async (props: any) => {
           {/* content */}
           <div className="w-full md:w-3/4">
             {/* <div className="w-full aspect-video rounded-2xl bg-linear-150 from-[#2E996C]/30 to-[#0F3324]/30 flex items-center justify-center">
-              <h1 className="font-tulisan text-3xl">Thumbnail</h1>
+              <h1 className="font-caveat text-3xl">Thumbnail</h1>
             </div> */}
             <CrouselProject items={detailProject?.images} />
 

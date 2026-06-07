@@ -5,10 +5,7 @@ import dailyDev from '@/public/icons/daily-dev.svg';
 import { Github, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import FirstLoad from './grid-hero/first-load';
-import FirstResponsiveGrid from './grid-hero/first-responsive-grid';
-import SeoGrid from './grid-hero/seo-grid';
-import SingleTouchpoint from './grid-hero/single-touchpoint';
+import HeroGridReveal from './hero-grid-reveal';
 
 export default function Hero() {
   return (
@@ -72,14 +69,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="hidden col-span-1 lg:flex flex-col justify-center">
-        <div className="grid grid-cols-6 gap-2.5">
-          <FirstResponsiveGrid />
-          <SeoGrid />
-          <FirstLoad />
-          <SingleTouchpoint />
-        </div>
-      </div>
+      <HeroGridReveal />
     </section>
   );
 }
