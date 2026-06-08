@@ -15,7 +15,7 @@ const data = [
           <h4 className="font-semibold text-lg mb-2">Full-stack Developer</h4>
           <div className="flex items-center gap-4 text-muted-foreground">
             <Image
-              src="https://media.licdn.com/dms/image/v2/C560BAQG_lzelBaX9-g/company-logo_100_100-alternative/company-logo_100_100-alternative/0/1630654822933?e=1769644800&v=beta&t=tUC95wy3v05-KVXya5hnc5D4QeXUF11cHbZXboa1-dw"
+              src="/icons/ksi.jpg"
               width={20}
               height={20}
               className="w-5 h-w-5 rounded"
@@ -40,7 +40,7 @@ const data = [
           {/* company */}
           <div className="flex items-center gap-4 text-muted-foreground mb-6">
             <Image
-              src="https://media.licdn.com/dms/image/v2/C510BAQHejxEN-sKXpg/company-logo_100_100/company-logo_100_100/0/1630610747476?e=1769644800&v=beta&t=S4_4MnWLOuz8TvrnB3FaKPEcjyBFGE-_rzv0u91i9q4"
+              src="/icons/itec.jpg"
               width={20}
               height={20}
               className="w-5 h-w-5 rounded"
@@ -81,9 +81,7 @@ const data = [
               </div>
               <div className="col-span-1 aspect-video overflow-hidden object-cover flex justify-center rounded-lg">
                 <Image
-                  src={
-                    'https://media.licdn.com/dms/image/v2/D562DAQEB7KMHvgvmOg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1733052727700?e=1768654800&v=beta&t=b-68botieGwgoeIg_B89XArmXEiB-vtnQlj6ogNTh84'
-                  }
+                  src="/images/ckb.jpg"
                   width={300}
                   height={80}
                   alt="billing monitor"
@@ -110,7 +108,7 @@ const data = [
           {/* company */}
           <div className="flex items-center gap-4 text-muted-foreground mb-6">
             <Image
-              src="https://media.licdn.com/dms/image/v2/D560BAQHuVTv2n1mWhA/company-logo_100_100/company-logo_100_100/0/1704903231161?e=1769644800&v=beta&t=MhzZg8pOIKnBRVI2fp9q-d51mgvr61Cswu2RVV0pqM0"
+              src="/icons/squadrones.jpg"
               width={20}
               height={20}
               className="w-5 h-w-5 rounded"
@@ -143,7 +141,7 @@ const data = [
           {/* company */}
           <div className="flex items-center gap-4 text-muted-foreground mb-6">
             <Image
-              src="https://media.licdn.com/dms/image/v2/C510BAQE_jLQ3JsZAvw/company-logo_100_100/company-logo_100_100/0/1630611576787/sonicboom_logo?e=1769644800&v=beta&t=kMg9-LcXo2bz9ZgNFNaaLQga7dbDl7o5OV2tEsKjzj8"
+              src="/icons/sb.jpg"
               width={20}
               height={20}
               className="w-5 h-w-5 rounded"
@@ -190,7 +188,7 @@ const data = [
           {/* company */}
           <div className="flex items-center gap-4 text-muted-foreground mb-6">
             <Image
-              src="https://media.licdn.com/dms/image/v2/C4D0BAQGId3BUKnYBcw/company-logo_100_100/company-logo_100_100/0/1653561911593?e=1769644800&v=beta&t=DBT599kP-O9Bz7A_SASPfR-5ERuUmzZsZ7eALY3SbkI"
+              src="/icons/ye.jpg"
               width={20}
               height={20}
               className="w-5 h-w-5 rounded"

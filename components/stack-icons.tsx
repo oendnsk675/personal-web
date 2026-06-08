@@ -9,6 +9,7 @@ import {
   SiNextdotjs,
   SiPostgresql,
   SiPrisma,
+  SiSharp,
   SiTailwindcss,
   SiVuedotjs,
 } from 'react-icons/si';
@@ -25,4 +26,5 @@ export const stackIcons: Record<string, JSX.Element> = {
   EJS: <SiEjs aria-label="EJS" />,
   Prisma: <SiPrisma aria-label="Prisma" />,
   FFmpeg: <SiFfmpeg aria-label="FFmpeg" />,
+  Sharp: <SiSharp aria-label="Sharp" />,
 };

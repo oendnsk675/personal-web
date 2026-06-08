@@ -77,10 +77,7 @@ export default function Footer() {
               </span>
               <ul className="grid gap-2">
                 <li>
-                  <Link href="/">Team Sync</Link>
-                </li>
-                <li>
-                  <Link href="/">Ticket Generator</Link>
+                  <Link href="https://image.sayidinaahmadalqososyi.space/" target="_blank">Pixform</Link>
                 </li>
               </ul>
             </div>
@@ -91,9 +88,6 @@ export default function Footer() {
               <ul className="grid gap-2">
                 <li>
                   <Link href="/">Book Notes</Link>
-                </li>
-                <li>
-                  <Link href="/">My Algoviz</Link>
                 </li>
                 <li>
                   <Link href="/">RSS</Link>

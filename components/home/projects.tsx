@@ -10,7 +10,7 @@ export default function Projects() {
   return (
     <section className="w-full mb-20">
       {/* projects listcards */}
-      <div className="">
+      <div className="mx-1">
         <div className="mb-6 md:mb-0">
           <div className="relative w-fit flex gap-1 md:gap-3 items-center mb-4">
             <Fancytext firstWord="Featured" secondWord="Projects" />

@@ -9,7 +9,7 @@ export default async function Blogs() {
   const { data: blogs } = await getAllBlogs({ limit: 3, sort: 'desc' });
 
   return (
-    <section className="w-full mt-36 mb-20 relative">
+    <section className="w-full mt-36 mb-36 relative">
       <div className="w-full flex flex-col items-center gap-8 mb-32 hidden">
         <ComplexThings />
 
@@ -20,7 +20,7 @@ export default async function Blogs() {
       </div>
 
       {/* blogs listcards */}
-      <div className="">
+      <div className="mx-1">
         <div className="mb-6 md:mb-0">
           <div className="relative w-fit flex gap-1 md:gap-3 items-center mb-4">
             <Fancytext firstWord="Featured" secondWord="Posts" />

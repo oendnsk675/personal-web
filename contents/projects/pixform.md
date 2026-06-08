@@ -1,10 +1,10 @@
 ---
 title: "Pixform"
 description: "Open source web tool untuk konversi format gambar dan remove background otomatis, tanpa auth dan database, dengan history/settings berbasis browser serta perlindungan rate limiting berbasis IP dan cookie session."
-thumbnail: "/images/thumbnail/pixform-thumbnail.png"
+thumbnail: "/images/thumbnail/pixform-thumbs-square.webp"
 images:
   - "/images/thumbnail/pixform-1.webp"
-stack: ["Next.js", "TypeScript", "TailwindCSS", "Sharp", "RMBG-1.4", "Zustand", "PM2", "Nginx"]
+stack: ["Next.js", "TailwindCSS", "Sharp", "RMBG-1.4"]
 links:
   code: "https://github.com/oendnsk675/image-tool"
   live: "https://image.sayidinaahmadalqososyi.space"
