@@ -10,6 +10,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '../ui/pagination';
+import ListBlogMotion from './list-blog-motion';
 
 export default async function ListBlog({
   page,
@@ -29,7 +30,7 @@ export default async function ListBlog({
   const { totalPages } = meta;
 
   return (
-    <>
+    <ListBlogMotion>
       {data.map((item, index) => (
         <CardBlog content={item} key={index} />
       ))}
@@ -68,6 +69,6 @@ export default async function ListBlog({
           </PaginationContent>
         </Pagination>
       </div>
-    </>
+    </ListBlogMotion>
   );
 }

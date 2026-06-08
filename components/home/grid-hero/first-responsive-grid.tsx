@@ -4,7 +4,11 @@ import ResponsiveFirstDesignSVG from '@/components/pattern/responsive-first-desi
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-export default function FirstResponsiveGrid() {
+export default function FirstResponsiveGrid({
+  revealDelay = 0,
+}: {
+  revealDelay?: number;
+}) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
@@ -19,12 +23,22 @@ export default function FirstResponsiveGrid() {
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       ></motion.div>
-      <p className="text-center text-sm text-pretty text-muted-foreground mt-2">
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.45, delay: revealDelay, ease: 'easeOut' }}
+        className="text-center text-sm text-pretty text-muted-foreground mt-2"
+      >
         Built responsively, <br /> shaped deliberately
-      </p>
-      <div className="absolute bottom-0 right-0 w-full flex justify-center">
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.55, delay: revealDelay + 0.15, ease: 'easeOut' }}
+        className="absolute bottom-0 right-0 w-full flex justify-center"
+      >
         <ResponsiveFirstDesignSVG isHovered={isHovered} />
-      </div>
+      </motion.div>
     </div>
   );
 }

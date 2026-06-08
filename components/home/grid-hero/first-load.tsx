@@ -5,7 +5,7 @@ import fastdev from '@/public/images/fast-dev.svg';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
-export default function FirstLoad() {
+export default function FirstLoad({ revealDelay = 0 }: { revealDelay?: number }) {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
@@ -20,7 +20,12 @@ export default function FirstLoad() {
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       ></motion.div>
-      <div className="absolute z-20 inset-0 w-full h-full flex justify-center items-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.55, delay: revealDelay, ease: 'easeOut' }}
+        className="absolute z-20 inset-0 w-full h-full flex justify-center items-center"
+      >
         <ExcoticImageComponent
           src={fastdev}
           alt=""
@@ -32,11 +37,16 @@ export default function FirstLoad() {
           }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         />
-      </div>
+      </motion.div>
       <div className="flex h-full items-end">
-        <p className='text-muted-foreground text-sm'>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: revealDelay + 0.15, ease: 'easeOut' }}
+          className="text-muted-foreground text-sm"
+        >
           Efficiency <br /> without haste.
-        </p>
+        </motion.p>
       </div>
     </div>
   );

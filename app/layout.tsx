@@ -2,6 +2,7 @@ import Footer from '@/components/footer';
 import Header from '@/components/header';
 import type { Metadata } from 'next';
 import { Inter, Caveat } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 
 const font = Inter({
@@ -61,6 +62,12 @@ export default function RootLayout({
       <body
         className={`antialiased block xl:flex xl:flex-col items-center overflow-x-hidden`}
       >
+        <NextTopLoader
+          color="#134136"
+          height={5}
+          showSpinner={false}
+          shadow={false}
+        />
         <Header />
         <div className="w-full flex justify-center">{children}</div>
         <Footer />

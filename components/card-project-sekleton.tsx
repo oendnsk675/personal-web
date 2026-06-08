@@ -1,37 +1,37 @@
-import LineLights from './pattern/line-lights';
 import { Skeleton } from './ui/skeleton';
 
 export default function CardProjectSekleton() {
   return (
-    <div className="">
+    <div className="w-full">
       {Array.from({ length: 5 }).map((_, index) => (
         <div
           key={index}
-          className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row md:items-start justify-between py-8 border-b group cursor-custom relative overflow-hidden"
+          className="flex flex-col-reverse md:flex-row justify-between gap-6 py-4 md:py-8"
         >
-          <LineLights
-            position="bottom"
-            className="opacity-0 group-hover:opacity-50 transition-all duration-150"
-          />
-
-          {/* left */}
-          <div className="flex-1 flex flex-col gap-3 relative z-20">
-            {/* date */}
-            <Skeleton className="w-[135px] h-5" />
-            {/* title and summary */}
-            <div className="flex flex-col gap-1 md:mb-4">
-              <Skeleton className="w-[370px] h-5" />
-              <Skeleton className="w-[567px] h-[72px]" />
+          <div className="flex-1 border rounded-2xl p-7 relative">
+            <div className="flex flex-col gap-4 mb-4">
+              <Skeleton className="h-10 w-3/4 max-w-[420px]" />
+              <Skeleton className="h-12 w-full max-w-[720px]" />
             </div>
 
-            {/* metadata */}
-            <div className="flex flex-col gap-4 md:flex-row md:gap-0 md:items-center md:justify-between">
-              <Skeleton className="w-[135px] h-5" />
-              <Skeleton className="w-[70px] h-5" />
+            <div className="flex items-center gap-2 mb-8">
+              <Skeleton className="h-6 w-12" />
+              <Skeleton className="size-7 rounded" />
+              <Skeleton className="size-7 rounded" />
+              <Skeleton className="size-7 rounded" />
+              <Skeleton className="h-7 w-16" />
+            </div>
+
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-4">
+                <Skeleton className="h-9 w-32 rounded-md" />
+                <Skeleton className="h-9 w-28 rounded-md" />
+              </div>
+              <Skeleton className="hidden h-4 w-28 sm:block" />
             </div>
           </div>
-          {/* right */}
-          <Skeleton className="w-full md:w-60 aspect-video overflow-hidden rounded-lg relative z-20 border" />
+
+          <Skeleton className="hidden md:block md:w-72 aspect-square rounded-lg border p-6" />
         </div>
       ))}
     </div>

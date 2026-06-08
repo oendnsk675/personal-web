@@ -1,5 +1,4 @@
 import { TBlogFilter, TBlogSortBy } from '@/types/blog';
-import CardBlog from '../card-blog';
 import {
   Pagination,
   PaginationContent,
@@ -11,6 +10,7 @@ import {
 } from '../ui/pagination';
 import { getAllProjects } from '@/lib/content/getAll';
 import CardProject from '../card-projects';
+import ListProjectsMotion from './list-projects-motion';
 
 export default async function ListProject({
   page,
@@ -21,20 +21,22 @@ export default async function ListProject({
   sortBy: TBlogSortBy;
   filter?: TBlogFilter;
 }) {
+  await new Promise((resolve) => setTimeout(resolve, 180));
+
   const { data: projects, meta } = getAllProjects({
     page,
     limit: 10,
     sort: 'desc',
     sortBy,
-    filter
+    filter,
   });
 
   const { totalPages } = meta;
 
   return (
-    <>
+    <ListProjectsMotion>
       {projects.map((project, index) => (
-        <CardProject data={project} index={index} key={index} />
+        <CardProject data={project} index={index} key={project.slug} />
       ))}
       {/* paggination */}
       <div className="flex justify-center mt-8">
@@ -43,7 +45,7 @@ export default async function ListProject({
             <PaginationItem>
               <PaginationPrevious
                 disabled={page === 1}
-                href={`/blogs?page=${page - 1}`}
+                href={`/projects?page=${page - 1}`}
               />
             </PaginationItem>
             <PaginationItem>
@@ -55,7 +57,7 @@ export default async function ListProject({
                   <PaginationLink
                     className={index + 1 === page ? 'bg-accent' : ''}
                     key={index}
-                    href={`/blogs?page=${index + 1}`}
+                    href={`/projects?page=${index + 1}`}
                   >
                     {index + 1}
                   </PaginationLink>
@@ -65,12 +67,12 @@ export default async function ListProject({
             <PaginationItem>
               <PaginationNext
                 disabled={page === totalPages}
-                href={`/blogs?page=${page + 1}`}
+                href={`/projects?page=${page + 1}`}
               />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
       </div>
-    </>
+    </ListProjectsMotion>
   );
 }

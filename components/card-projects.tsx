@@ -1,5 +1,6 @@
 import { PATTERNS } from '@/components/pattern/project-pattern';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { TProjectMarkdown } from '@/types/project';
 import { ArrowRight, Link2 } from 'lucide-react';
 import Image from 'next/image';
@@ -14,6 +15,7 @@ export default function CardProject({
   index: number;
 }) {
   const Pattern = PATTERNS[index % PATTERNS.length];
+  const liveUrl = data?.links?.live;
 
   return (
     <div className="flex flex-col-reverse md:flex-row justify-between gap-6 py-4 md:py-8">
@@ -33,14 +35,18 @@ export default function CardProject({
         <div className="flex items-center gap-2 mb-8">
           <span>Tools: </span>
           <div className="flex items-center gap-2">
-            {data?.stack.map((tech) => (
-              <span
-                key={tech}
-                className="flex items-center justify-center p-1 rounded bg-white/20 text-sm"
-              >
-                {stackIcons[tech] ?? tech}
-              </span>
-            ))}
+            {data?.stack.map((tech) => {
+              return stackIcons[tech] ? (
+                <span
+                  key={tech}
+                  className="flex items-center justify-center p-1 rounded bg-white/20 text-sm"
+                >
+                  {stackIcons[tech] ?? tech}
+                </span>
+              ) : (
+                <span className='p-1 rounded bg-white/20 text-xs' key={tech}>{tech}</span>
+              );
+            })}
           </div>
         </div>
         {/* CTA */}
@@ -62,8 +68,14 @@ export default function CardProject({
             )}
           </div>
           <Link
-            href={data?.links?.live || '#'}
-            className="flex gap-1 text-muted-foreground hover:text-foreground items-center"
+            href={liveUrl || '#'}
+            aria-disabled={!liveUrl}
+            tabIndex={liveUrl ? undefined : -1}
+            className={cn(
+              'flex gap-1 text-muted-foreground hover:text-foreground items-center',
+              !liveUrl &&
+                'pointer-events-none opacity-60 hover:text-muted-foreground cursor-default'
+            )}
           >
             <Link2 size={16} />
             <span className="text-xs">Open Live Site</span>

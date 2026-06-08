@@ -27,6 +27,7 @@ export default async function Blog(props: {
   const sortBy: TBlogSortBy = (searchParams?.sortBy as TBlogSortBy) || 'views';
   const topic: string | undefined = searchParams?.topic;
   const title: string | undefined = searchParams?.title;
+  const listKey = `${page}-${sortBy}-${topic ?? ''}-${title ?? ''}`;
 
   const topics: string[] = getAllBlogTopic();
 
@@ -57,7 +58,7 @@ export default async function Blog(props: {
       <main className="xl:max-w-6xl px-4 lg:px-0 relative min-h-[150vh] flex flex-col-reverse md:flex-row gap-4 md:gap-0 md:items-start">
         {/* left */}
         <section className="w-full md:w-3/4 min-h-[150vh] pb-6 md:pr-6 md:border-r">
-          <Suspense fallback={<CardBlogSekleton />}>
+          <Suspense key={listKey} fallback={<CardBlogSekleton />}>
             <ListBlog page={page} sortBy={sortBy} filter={{ topic, title }} />
           </Suspense>
         </section>

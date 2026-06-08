@@ -181,6 +181,17 @@ a:hover {
   scrollbar-width: none;
 }
 
+.composite-exclude {
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
