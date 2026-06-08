@@ -24,7 +24,10 @@ export default function BlogCategories({ categories = [] }: TProps) {
 
       {remainingCount > 0 && (
         <Tooltip>
-          <TooltipTrigger className="p-0.5 px-4 text-xs rounded bg-emerald-900/50 cursor-custom">
+          <TooltipTrigger
+            aria-label={`${remainingCount} more categories: ${invisibleCategories.join(', ')}`}
+            className="min-h-6 p-0.5 px-4 text-xs rounded bg-emerald-900/50 cursor-custom"
+          >
             +{remainingCount}
           </TooltipTrigger>
           <TooltipContent>{invisibleCategories.join(', ')}</TooltipContent>

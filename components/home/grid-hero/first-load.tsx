@@ -11,7 +11,7 @@ export default function FirstLoad() {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="col-span-2 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% p-4 relative overflow-hidden"
+      className="h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% p-4 relative overflow-hidden"
     >
       {/* lights */}
       <motion.div
@@ -23,7 +23,8 @@ export default function FirstLoad() {
       <div className="absolute z-20 inset-0 w-full h-full flex justify-center items-center">
         <ExcoticImageComponent
           src={fastdev}
-          alt="fast-dev.svg"
+          alt=""
+          aria-hidden="true"
           initial={{ opacity: 0.5, scale: 1 }}
           animate={{
             opacity: isHovered ? 1 : 0.5,

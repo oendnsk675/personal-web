@@ -4,7 +4,9 @@ import { forwardRef } from 'react';
 
 const ExoticImage = forwardRef<HTMLImageElement, ImageProps>(
   function ExoticImageWrapper(props, ref) {
-    return <Image {...props} ref={ref} />;
+    const { alt, ...rest } = props;
+
+    return <Image alt={alt} {...rest} ref={ref} />;
   }
 );
 

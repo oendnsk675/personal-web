@@ -33,7 +33,7 @@ export default function CardBlog({ content }: TContent) {
         <div className="flex flex-col gap-1 md:mb-4">
           <div className="relative w-fit">
             <div className="opacity-0 group-hover:opacity-100 absolute -z-10 inset-0 w-full h-full bg-linear-to-r from-transparent via-emerald-500/50 to-transparent transition-all duration-150"></div>
-            <h4 className="text-lg font-bold">{content.title}</h4>
+            <h3 className="text-lg font-bold">{content.title}</h3>
           </div>
           <p className="text-pretty text-muted-foreground">
             {content.description}
@@ -65,13 +65,13 @@ export default function CardBlog({ content }: TContent) {
         </div>
       </div>
       {/* right */}
-      <div className="w-full md:w-60 aspect-video overflow-hidden rounded-lg relative z-20 border">
+      <div className="w-full md:w-60 aspect-[256/175] overflow-hidden rounded-lg relative z-20 border">
         {content.thumbnail ? (
           <Image
             src={content.thumbnail}
             fill
-            className="bg-cover"
-            alt="thumbnail"
+            className="object-cover"
+            alt={`${content.title} thumbnail`}
             sizes="(max-width: 768px) 100vw, 240px"
           />
         ) : (

@@ -24,7 +24,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <CardProject data={project} index={index} key={index} />
         ))}
-        <ButtonSeeMore href="/projects" />
+        <ButtonSeeMore href="/projects" label="See more projects" />
       </div>
     </section>
   );

@@ -17,9 +17,35 @@ const fontCaveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: 'Sayidina Ahmadal Qososyi',
+  metadataBase: new URL('https://www.sayidinaahmadalqososyi.com'),
+  title: {
+    default: 'Sayidina Ahmadal Qososyi',
+    template: '%s | Sayidina Ahmadal Qososyi',
+  },
   description:
-    'He brings over 2 years of hands-on experience as a software engineer, with a strong focus on building scalable React applications and optimizing front-end performance. He consistently contributes to Agile development cycles, delivering responsive, high-quality features with measurable impact. He is highly regarded for producing clean, maintainable code and ensuring reliability through well-structured front-end test suites.',
+    'Software engineer focused on scalable React applications, frontend performance, clean architecture, and reliable user experiences.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Sayidina Ahmadal Qososyi',
+    description:
+      'Software engineer focused on scalable React applications, frontend performance, clean architecture, and reliable user experiences.',
+    url: '/',
+    siteName: 'Sayidina Ahmadal Qososyi',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sayidina Ahmadal Qososyi',
+    description:
+      'Software engineer focused on scalable React applications, frontend performance, clean architecture, and reliable user experiences.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: '/favicon.ico',
   },

@@ -84,6 +84,7 @@ export default function Header() {
               <TooltipTrigger asChild>
                 <Link
                   href={link.href}
+                  aria-label={link.title}
                   className="flex justify-center items-center relative aspect-square rounded-lg bg-gray-200 dark:bg-neutral-800/40 xl:dark:bg-neutral-800 w-10 h-10 hover:opacity-75 transition-all duration-150 cursor-custom gap-2"
                 >
                   {link.icon}

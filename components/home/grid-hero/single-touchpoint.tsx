@@ -12,7 +12,7 @@ export default function SingleTouchpoint() {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="col-span-4 h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% relative p-4 overflow-hidden"
+      className="h-56 rounded-xl bg-linear-to-tr from-[rgba(21,89,65,0.30)] from-0% via-[rgba(40,162,117,0.30)] via-65% to-[rgba(21,89,65,0.30)] to-95% relative p-4 overflow-hidden"
     >
       {/* lights */}
       <motion.div
@@ -23,28 +23,32 @@ export default function SingleTouchpoint() {
       ></motion.div>
       <Image
         src={star}
-        alt="fast-dev.svg"
+        alt=""
+        aria-hidden="true"
         className="absolute top-11 right-12 "
       />
       <Image
         src="/images/moon-1.svg"
         width={22}
         height={22}
-        alt="fast-dev.svg"
+        alt=""
+        aria-hidden="true"
         className="absolute top-2.5 right-4 "
       />
       <Image
         src="/images/moon-2.svg"
         width={32}
         height={32}
-        alt="fast-dev.svg"
+        alt=""
+        aria-hidden="true"
         className="absolute top-10 right-1/2 "
       />
       <ExcoticImageComponent
         src="/images/moon-3.svg"
         width={107}
         height={107}
-        alt="fast-dev.svg"
+        alt=""
+        aria-hidden="true"
         className="absolute z-30 bottom-4 left-4"
         initial={{ rotate: 0, opacity: 0.4 }}
         animate={{ rotate: isHovered ? -30 : 0, opacity: isHovered ? 100 : 0.4 }}
@@ -54,7 +58,8 @@ export default function SingleTouchpoint() {
         src="/images/moon-diagonal.svg"
         width={151}
         height={35}
-        alt="fast-dev.svg"
+        alt=""
+        aria-hidden="true"
         className="absolute bottom-24 right-32 scale-0.5"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}

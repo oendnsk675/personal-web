@@ -14,15 +14,15 @@ import {
 } from 'react-icons/si';
 
 export const stackIcons: Record<string, JSX.Element> = {
-  'Next.js': <SiNextdotjs />,
-  'Vue.js': <SiVuedotjs />,
-  ExpressJS: <SiExpress />,
-  NestJS: <SiNestjs />,
-  TailwindCSS: <SiTailwindcss />,
-  MongoDB: <SiMongodb />,
-  PostgreSQL: <SiPostgresql />,
-  Bootstrap: <SiBootstrap />,
-  EJS: <SiEjs />,
-  Prisma: <SiPrisma />,
-  FFmpeg: <SiFfmpeg />,
+  'Next.js': <SiNextdotjs aria-label="Next.js" />,
+  'Vue.js': <SiVuedotjs aria-label="Vue.js" />,
+  ExpressJS: <SiExpress aria-label="ExpressJS" />,
+  NestJS: <SiNestjs aria-label="NestJS" />,
+  TailwindCSS: <SiTailwindcss aria-label="TailwindCSS" />,
+  MongoDB: <SiMongodb aria-label="MongoDB" />,
+  PostgreSQL: <SiPostgresql aria-label="PostgreSQL" />,
+  Bootstrap: <SiBootstrap aria-label="Bootstrap" />,
+  EJS: <SiEjs aria-label="EJS" />,
+  Prisma: <SiPrisma aria-label="Prisma" />,
+  FFmpeg: <SiFfmpeg aria-label="FFmpeg" />,
 };

@@ -24,28 +24,30 @@ export default function Footer() {
                 width={28}
                 height={28}
               />
-              <h4 className="text-xl font-semibold md:font-bold">
+              <p className="text-xl font-semibold md:font-bold">
                 S.A Qososyi
-              </h4>
+              </p>
             </div>
             <p className="text-pretty text-muted-foreground mb-6">
               Help you rebuild and redefine fundamental concepts through mental
               models.
             </p>
             <div className="flex items-center gap-4">
-              <Link href="https://github.com/oendnsk675" target="_blank">
+              <Link href="https://github.com/oendnsk675" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
                 <Github size={20} strokeWidth={0.8} />
               </Link>
-              <Link href="https://github.com/oendnsk675" target="_blank">
+              <Link href="https://app.daily.dev/sayidinaahmadalqososyi" target="_blank" rel="noopener noreferrer" aria-label="Daily.dev profile">
                 <Image src={dailyDev} alt="Logo Daily Dev" />
               </Link>
               <Link
                 href="https://bsky.app/profile/oslab19.bsky.social"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bluesky profile"
               >
                 <Image src={bsky} alt="Logo Bsky" />
               </Link>
-              <Link href="https://github.com/oendnsk675" target="_blank">
+              <Link href="https://www.instagram.com/oslab19/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
                 <Instagram size={20} strokeWidth={0.8} />
               </Link>
             </div>

@@ -41,6 +41,8 @@ export default function Hero() {
             <a
               href="https://github.com/oendnsk675"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Github size={20} strokeWidth={1} />
@@ -48,6 +50,8 @@ export default function Hero() {
             <a
               href="https://app.daily.dev/sayidinaahmadalqososyi"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Daily.dev profile"
               className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={dailyDev} alt="Logo Daily Dev" />
@@ -55,6 +59,8 @@ export default function Hero() {
             <a
               href="https://bsky.app/profile/oslab19.bsky.social"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bluesky profile"
               className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Image src={bsky} alt="Logo Bsky" />
@@ -62,6 +68,8 @@ export default function Hero() {
             <a
               href="https://www.instagram.com/oslab19/"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram profile"
               className="opacity-60 hover:opacity-75 transition-all duration-150 cursor-custom"
             >
               <Instagram size={20} strokeWidth={1} />

@@ -1,11 +1,37 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import FirstLoad from './grid-hero/first-load';
 import FirstResponsiveGrid from './grid-hero/first-responsive-grid';
 import SeoGrid from './grid-hero/seo-grid';
 import SingleTouchpoint from './grid-hero/single-touchpoint';
+
+function RevealItem({
+  children,
+  className,
+  show,
+}: {
+  children: ReactNode;
+  className: string;
+  show: boolean;
+}) {
+  return (
+    <div className={className}>
+      {show && (
+        <motion.div
+          className="h-full"
+          initial={{ opacity: 0, y: 18, scale: 0.96, filter: 'blur(6px)' }}
+          animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {children}
+        </motion.div>
+      )}
+    </div>
+  );
+}
 
 export default function HeroGridReveal() {
   const [visibleStep, setVisibleStep] = useState(0);
@@ -14,8 +40,8 @@ export default function HeroGridReveal() {
     const timeouts = [
       window.setTimeout(() => setVisibleStep(1), 500),
       window.setTimeout(() => setVisibleStep(2), 1333),
-      window.setTimeout(() => setVisibleStep(3), 2166),
-      window.setTimeout(() => setVisibleStep(4), 2500),
+      window.setTimeout(() => setVisibleStep(3), 2266),
+      window.setTimeout(() => setVisibleStep(4), 3000),
     ];
 
     return () => timeouts.forEach(window.clearTimeout);
@@ -33,10 +59,18 @@ export default function HeroGridReveal() {
     >
       {visibleStep > 0 && (
         <div className="grid grid-cols-6 gap-2.5">
-          {visibleStep >= 1 && <FirstResponsiveGrid />}
-          {visibleStep >= 2 && <SeoGrid />}
-          {visibleStep >= 3 && <FirstLoad />}
-          {visibleStep >= 4 && <SingleTouchpoint />}
+          <RevealItem show={visibleStep >= 1} className="col-span-4 h-56">
+            <FirstResponsiveGrid />
+          </RevealItem>
+          <RevealItem show={visibleStep >= 2} className="col-span-2 h-56">
+            <SeoGrid />
+          </RevealItem>
+          <RevealItem show={visibleStep >= 3} className="col-span-2 h-56">
+            <FirstLoad />
+          </RevealItem>
+          <RevealItem show={visibleStep >= 4} className="col-span-4 h-56">
+            <SingleTouchpoint />
+          </RevealItem>
         </div>
       )}
     </motion.div>

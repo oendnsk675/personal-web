@@ -34,7 +34,7 @@ export default async function Blogs() {
         {blogs?.map((content, item) => (
           <CardBlog content={content} key={item} />
         ))}
-        <ButtonSeeMore href="/blogs" />
+        <ButtonSeeMore href="/blogs" label="See more blogs" />
       </div>
     </section>
   );
