@@ -50,7 +50,7 @@ export default function CardProject({
           </div>
         </div>
         {/* CTA */}
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center justify-between flex-wrap gap-2 gap-y-6">
           <div className="flex items-center gap-4">
             <Link href={`/projects/${data?.slug}`}>
               <Button variant={'outline'}>

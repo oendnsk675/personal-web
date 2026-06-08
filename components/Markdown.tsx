@@ -21,6 +21,8 @@ const inlineCodeStyle = {
   borderRadius: '4px',
   fontFamily: 'monospace',
   fontSize: '0.875rem',
+  wordBreak: 'break-all' as const,
+  overflowWrap: 'anywhere' as const,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

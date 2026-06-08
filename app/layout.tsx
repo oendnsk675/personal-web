@@ -63,7 +63,7 @@ export default function RootLayout({
         className={`antialiased block xl:flex xl:flex-col items-center overflow-x-hidden`}
       >
         <NextTopLoader
-          color="#134136"
+          color="#B6B5B6"
           height={5}
           showSpinner={false}
           shadow={false}

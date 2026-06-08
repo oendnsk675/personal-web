@@ -13,7 +13,7 @@ const LinkNode: React.FC<LinkNodeProps> = ({ href, children }) => {
     <a
       className={cn(
         styles.link,
-        'text-pretty text-emerald-400! underline hover:opacity-75 transition-all duration-150'
+        'text-pretty text-emerald-400! underline hover:opacity-75 transition-all duration-150 break-all [overflow-wrap:anywhere]'
       )}
       href={href}
     >
