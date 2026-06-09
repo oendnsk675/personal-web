@@ -143,15 +143,15 @@ html {
 }
 
 body {
-  cursor: url('/cursor-default.svg'), pointer;
+  cursor: url('/cursor-default.png') 0 0, auto;
 }
 
 .cursor-custom:hover {
-  cursor: url('/cursor-hover.svg'), pointer !important;
+  cursor: url('/cursor-hover.png') 0 0, pointer !important;
 }
 
 a:hover {
-  cursor: url('/cursor-hover.svg'), pointer !important;
+  cursor: url('/cursor-hover.png') 0 0, pointer !important;
 }
 
 .font-handwriting {
