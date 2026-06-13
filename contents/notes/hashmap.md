@@ -1,7 +1,7 @@
 ---
 title: 'HashMap'
 description: ''
-categories: ['Python', 'DSA']
+categories: ['Python', 'DSA', 'Two Sum', 'Group Anagrams']
 date: 2026/06/09
 ---
 
