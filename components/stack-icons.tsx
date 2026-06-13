@@ -1,14 +1,17 @@
 import { JSX } from 'react';
 import {
   SiBootstrap,
+  SiCss3,
   SiEjs,
   SiExpress,
   SiFfmpeg,
+  SiGoogledataproc,
   SiMongodb,
   SiNestjs,
   SiNextdotjs,
   SiPostgresql,
   SiPrisma,
+  SiPython,
   SiSharp,
   SiTailwindcss,
   SiVuedotjs,
@@ -27,4 +30,7 @@ export const stackIcons: Record<string, JSX.Element> = {
   Prisma: <SiPrisma aria-label="Prisma" />,
   FFmpeg: <SiFfmpeg aria-label="FFmpeg" />,
   Sharp: <SiSharp aria-label="Sharp" />,
+  CSS: <SiCss3 aria-label="Css" />,
+  Python: <SiPython aria-label="Python" />,
+  DSA: <SiGoogledataproc aria-label="DSA" />,
 };

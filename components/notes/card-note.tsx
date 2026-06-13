@@ -31,14 +31,23 @@ export function CardNote({ note }: { note: TNoteMarkdown }) {
 
         {/* category */}
         <div className="flex items-center gap-2 border-t p-4">
-          {note?.categories.map((category) => (
-            <span
+          {note?.categories.map((category) => {
+            return stackIcons[category] ? (
+              <span
               key={category}
               className="flex items-center justify-center p-1 rounded bg-white/20 text-sm"
             >
               {stackIcons[category] ?? category}
             </span>
-          ))}
+            ) : (
+              <span
+                key={category}
+                className="flex items-center justify-center p-1 rounded bg-white/20 text-xs"
+              >
+                {category}
+              </span>
+            )
+          })}
         </div>
       </Link>
     </div>
