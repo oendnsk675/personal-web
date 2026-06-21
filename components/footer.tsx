@@ -79,6 +79,9 @@ export default function Footer() {
                 <li>
                   <Link href="https://image.sayidinaahmadalqososyi.space/" target="_blank">Pixform</Link>
                 </li>
+                <li>
+                  <Link href="https://lyrics-overlay.vercel.app/" target="_blank">Lyrics Overlay</Link>
+                </li>
               </ul>
             </div>
             <div className="col-span-1">
