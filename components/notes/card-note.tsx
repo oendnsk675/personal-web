@@ -1,12 +1,18 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { TNoteMarkdown } from '@/types/notes';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { stackIcons } from '../stack-icons';
 
 export function CardNote({ note }: { note: TNoteMarkdown }) {
   return (
-    <div className="max-w-xs w-full group/card">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="max-w-xs w-full group/card"
+    >
       <Link
         href={`/notes/${note.slug}`}
         className={cn(
@@ -50,6 +56,6 @@ export function CardNote({ note }: { note: TNoteMarkdown }) {
           })}
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }

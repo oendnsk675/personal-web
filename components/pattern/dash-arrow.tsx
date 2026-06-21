@@ -1,6 +1,13 @@
+'use client';
+
+import { motion } from 'motion/react';
+
 export default function DashArrow({ className }: { className?: string }) {
   return (
-    <svg
+    <motion.svg
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
       width="75"
       height="62"
       viewBox="0 0 75 62"
@@ -28,6 +35,6 @@ export default function DashArrow({ className }: { className?: string }) {
           <rect width="75" height="62" fill="white" />
         </clipPath>
       </defs>
-    </svg>
+    </motion.svg>
   );
 }

@@ -1,8 +1,16 @@
+'use client';
+
+import { motion } from 'motion/react';
 import { Skeleton } from './ui/skeleton';
 
 export default function CardProjectSekleton() {
   return (
-    <div className="w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="w-full"
+    >
       {Array.from({ length: 5 }).map((_, index) => (
         <div
           key={index}
@@ -34,6 +42,6 @@ export default function CardProjectSekleton() {
           <Skeleton className="hidden md:block md:w-72 aspect-square rounded-lg border p-6" />
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }

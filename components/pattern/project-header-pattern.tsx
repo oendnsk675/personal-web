@@ -1,6 +1,13 @@
+'use client';
+
+import { motion } from 'motion/react';
+
 export default function ProjectHeaderPattern() {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
       className="absolute overflow-hidden inset-0 h-[450px] bg-neutral-950 opacity-20"
       style={{
         maskImage: 'linear-gradient(rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%)',
@@ -1021,6 +1028,6 @@ export default function ProjectHeaderPattern() {
         alt="pattern"
         className="absolute top-0 left-0"
       /> */}
-    </div>
+    </motion.div>
   );
 }

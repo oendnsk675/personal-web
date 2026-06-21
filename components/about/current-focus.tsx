@@ -1,9 +1,17 @@
+"use client";
+
+import { motion } from 'motion/react';
 import { CircleQuestionMark } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CurrentFocus() {
   return (
-    <div className="border rounded-2xl p-8 flex flex-col md:flex-row items-center md:justify-between gap-6 mb-44 relative">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="border rounded-2xl p-8 flex flex-col md:flex-row items-center md:justify-between gap-6 mb-44 relative"
+    >
       <div className="w-full md:w-2/5 flex justify-center md:justify-start items-center gap-4">
         <div className="w-fit rounded-lg border bg-neutral-900 p-2 relative z-20">
           <CircleQuestionMark className="opacity-75" />
@@ -31,6 +39,6 @@ export default function CurrentFocus() {
           </li>
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }

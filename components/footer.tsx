@@ -1,6 +1,9 @@
+'use client';
+
 import bsky from '@/public/icons/bsky.svg';
 import dailyDev from '@/public/icons/daily-dev.svg';
 import { ArrowRight, Github, Instagram } from 'lucide-react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LineLights from './pattern/line-lights';
@@ -8,7 +11,12 @@ import { Button } from './ui/button';
 
 export default function Footer() {
   return (
-    <footer className="relative w-full">
+    <motion.footer
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="relative w-full"
+    >
       {/* <div className="h-11 w-1/2"></div> */}
       <LineLights position="top" />
 
@@ -126,6 +134,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

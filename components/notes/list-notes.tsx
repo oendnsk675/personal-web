@@ -20,26 +20,6 @@ export default function ListNote({ filter }: { filter?: string }) {
           <CardNote note={note} key={index} />
         ))}
       </div>
-
-      {/* paggination */}
-      <div className="w-full flex justify-center mt-8">
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      </div>
     </>
   );
 }

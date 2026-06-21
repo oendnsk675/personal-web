@@ -1,4 +1,7 @@
+'use client';
+
 import { formatDate } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 export default function NotesPattern({
   notes,
@@ -8,7 +11,11 @@ export default function NotesPattern({
   date?: string;
 }) {
   return (
-    <div className="absolute inset-0 h-[450px] w-full p-4 md:p-8 top-[-1rem] md:top-0 opacity-60">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
+       className="absolute inset-0 h-[450px] w-full p-4 md:p-8 top-[-1rem] md:top-0 opacity-60">
       <div className="flex flex-col invisible md:visible">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-2">
@@ -61,7 +68,7 @@ export default function NotesPattern({
             }}
           />
         </div>
-        <div className="flex flex-col gap-8 opacity-30 mt-8">
+        <div className="flex flex-col gap-8 opacity-10 mt-8">
           <hr className="border-neutral-500 border-dashed" />
           <hr className="border-neutral-500" />
           <hr className="border-neutral-500 border-dashed" />
@@ -70,13 +77,8 @@ export default function NotesPattern({
           <hr className="border-neutral-500" />
           <hr className="border-neutral-500 border-dashed" />
           <hr className="border-neutral-500" />
-          <hr className="border-neutral-500 border-dashed" />
-          <hr className="border-neutral-500" />
-          <hr className="border-neutral-500 border-dashed" />
-          <hr className="border-neutral-500" />
-          <hr className="border-neutral-500 border-dashed" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

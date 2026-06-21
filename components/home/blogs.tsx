@@ -4,6 +4,7 @@ import CardBlog from '../card-blog';
 import Fancytext from '../fancy-text';
 import ComplexThings from '../pattern/complex-things';
 import DashArrow from '../pattern/dash-arrow';
+import BlogsSubtitle from './blogs-subtitle';
 
 export default async function Blogs() {
   const { data: blogs } = await getAllBlogs({ limit: 3, sort: 'desc' });
@@ -26,9 +27,7 @@ export default async function Blogs() {
             <Fancytext firstWord="Featured" secondWord="Posts" />
             <DashArrow className="absolute -right-24 -bottom-10" />
           </div>
-          <p className="text-pretty text-muted-foreground">
-            Some of my favorite writing.
-          </p>
+          <BlogsSubtitle />
         </div>
 
         {blogs?.map((content, item) => (

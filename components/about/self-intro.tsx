@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { FaGolang } from 'react-icons/fa6';
 import { SiExpress, SiNestjs, SiNextdotjs, SiVuedotjs } from 'react-icons/si';
@@ -60,12 +63,22 @@ export default function SelfIntro() {
   return (
     <div className="flex flex-col md:flex-row items-center md:justify-between gap-6 mb-44">
       {/* photo card */}
-      <div className="w-full md:w-2/5 flex justify-center md:justify-start -mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className="w-full md:w-2/5 flex justify-center md:justify-start -mt-10"
+      >
         <PhotoCard />
-      </div>
+      </motion.div>
 
       {/* description */}
-      <div className="w-full md:flex-1">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className="w-full md:flex-1"
+      >
         <h1 className="text-3xl font-bold mb-2">Sayidina Ahmadal Qososyi</h1>
         <div className="flex gap-2 text-muted-foreground mb-6">
           <span>Full-stack Web Developer at</span>
@@ -126,7 +139,7 @@ export default function SelfIntro() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

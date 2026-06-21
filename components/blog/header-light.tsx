@@ -1,6 +1,13 @@
+'use client';
+
+import { motion } from 'motion/react';
+
 export default function HeaderLight() {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
       className="absolute overflow-hidden inset-0 h-[450px] bg-neutral-950"
       style={{
         maskImage:
@@ -77,6 +84,6 @@ export default function HeaderLight() {
           </linearGradient>
         </defs>
       </svg>
-    </div>
+    </motion.div>
   );
 }

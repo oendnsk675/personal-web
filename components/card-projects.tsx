@@ -1,8 +1,11 @@
+"use client"
+
 import { PATTERNS } from '@/components/pattern/project-pattern';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { TProjectMarkdown } from '@/types/project';
 import { ArrowRight, Link2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { stackIcons } from './stack-icons';
@@ -18,7 +21,12 @@ export default function CardProject({
   const liveUrl = data?.links?.live;
 
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-between gap-6 py-4 md:py-8">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="flex flex-col-reverse md:flex-row justify-between gap-6 py-4 md:py-8"
+    >
       {/* Left */}
       <div className="flex-1 border rounded-2xl p-7 relative">
         {/* backdrop when mobile version */}
@@ -98,6 +106,6 @@ export default function CardProject({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

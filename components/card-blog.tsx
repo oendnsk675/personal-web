@@ -1,7 +1,10 @@
+"use client"
+
 import getDateFormat from '@/lib/content/getDateFormat';
 import { calcReadingTime } from '@/lib/utils';
 import { TBlogMarkdown } from '@/types/blog';
 import { Clock } from 'lucide-react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import BlogCategories from './blog-categories';
@@ -14,10 +17,15 @@ type TContent = {
 
 export default function CardBlog({ content }: TContent) {
   return (
-    <Link
-      href={`/blogs/${content.slug}`}
-      className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row md:items-start justify-between py-8 border-b group cursor-custom relative overflow-hidden"
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
     >
+      <Link
+        href={`/blogs/${content.slug}`}
+        className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row md:items-start justify-between py-8 border-b group cursor-custom relative overflow-hidden"
+      >
       <LineLights
         position="bottom"
         className="opacity-0 group-hover:opacity-50 transition-all duration-150"
@@ -86,6 +94,7 @@ export default function CardBlog({ content }: TContent) {
           </div>
         )}
       </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 }

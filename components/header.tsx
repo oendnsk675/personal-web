@@ -75,7 +75,12 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed flex justify-center w-full left-0 bottom-4 md:top-4 z-50 h-fit">
+    <motion.header
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="fixed flex justify-center w-full left-0 bottom-4 md:top-4 z-50 h-fit"
+    >
       <ul className="flex items-center justify-between md:justify-start w-fit mx-4 md:w-fit gap-4 md:mx-auto h-16 rounded-lg bg-gray-50/10 px-4 dark:bg-neutral-500/10 backdrop-blur border">
         <Link
           href={'/'}
@@ -144,6 +149,6 @@ export default function Header() {
           </DropdownMenuContent>
         </DropdownMenu>
       </ul>
-    </header>
+    </motion.header>
   );
 }

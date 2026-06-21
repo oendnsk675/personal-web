@@ -1,15 +1,13 @@
+import BlogsHeader from '@/components/blog/blogs-header';
 import FilterTopic from '@/components/blog/filter-topic';
-import HeaderLight from '@/components/blog/header-light';
 import ListBlog from '@/components/blog/list-blog';
 import SelectSort from '@/components/blog/select-sort';
 import CardBlogSekleton from '@/components/card-blog-sekleton';
-import Fancytext from '@/components/fancy-text';
 import NewsletterPattern from '@/components/pattern/newsletter-pattern';
-import SearchInput from '@/components/search-input';
 import { Button } from '@/components/ui/button';
 import { getAllBlogTopic } from '@/lib/content/getAllTopic';
 import { TBlogSortBy } from '@/types/blog';
-import { ArrowRight, TerminalIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -33,26 +31,7 @@ export default async function Blog(props: {
 
   return (
     <div className="w-full relative flex flex-col items-center">
-      {/* HEADER BLOG */}
-      <div className="w-full relative flex flex-col items-center gap-4 px-4 md:px-0 pt-32 pb-6 md:pb-20 border-b">
-        <HeaderLight />
-
-        <div className="rounded-lg border bg-neutral-900 p-2 relative z-20">
-          <TerminalIcon
-            width={28}
-            className="text-neutral-500 dark:text-neutral-300"
-          />
-        </div>
-        <Fancytext
-          className="text-4xl md:text-6xl relative z-20"
-          firstWord="The"
-          secondWord="Blog"
-        />
-        <p className="text-center mb-2 relative z-20 bg-linear-to-r from-neutral-600 via-neutral-50 to-neutral-600 bg-clip-text text-transparent">
-          Thoughts, mental models, and tutorials about front-end development.
-        </p>
-        <SearchInput key={'search-input'} />
-      </div>
+      <BlogsHeader />
 
       {/* content */}
       <main className="xl:max-w-6xl px-4 lg:px-0 relative min-h-[150vh] flex flex-col-reverse md:flex-row gap-4 md:gap-0 md:items-start">
