@@ -83,7 +83,7 @@ const ArticlePage = async (props: any) => {
           <div className="flex justify-between py-4">
             <div className="flex gap-4">
               <div className="flex gap-1.5 items-center">
-                {slug && <ViewCounter slug={slug} />}
+                {slug && <ViewCounter slug={slug} defaultViews={blog?.views} />}
               </div>
             </div>
             <div className="flex gap-4">

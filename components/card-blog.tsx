@@ -51,7 +51,13 @@ export default function CardBlog({ content }: TContent) {
               </span>
             </div>
             <div className="flex gap-1.5 items-center">
-              {content.slug && <ViewCounter slug={content.slug} />}
+              {content.slug && (
+                <ViewCounter
+                  slug={content.slug}
+                  defaultViews={content.views}
+                  increment={false}
+                />
+              )}
             </div>
           </div>
 

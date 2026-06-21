@@ -16,6 +16,7 @@ const LinkNode: React.FC<LinkNodeProps> = ({ href, children }) => {
         'text-pretty text-emerald-400! underline hover:opacity-75 transition-all duration-150 break-all [overflow-wrap:anywhere]'
       )}
       href={href}
+      target="_blank"
     >
       {children}
     </a>

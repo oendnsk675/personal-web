@@ -11,6 +11,8 @@ export type TBlogFrontmatter = {
 
 export type TBlogMarkdown = TBlogFrontmatter & {
   content: string;
+  views?: number;
+  likes?: number;
 };
 
 export type TBlogPaginated = TPaginated<TBlogMarkdown>;

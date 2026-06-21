@@ -8,8 +8,6 @@ categories: ['nextjs', 'web development', 'frontend', 'performance', 'rendering'
 
 # Partial Prerendering: Static Shell + Dynamic Stream dalam Satu Request
 
----
-
 ## Introduction
 
 Ada dilema klasik yang selalu muncul saat develop halaman web:
@@ -54,12 +52,10 @@ Untuk tiap PPR route, Next.js menghasilkan tiga hal sekaligus:
 
 ### Saat Request Time
 
-```
 1. Server kirim static HTML shell ke client  →  tampil seketika
 2. Server resume render dynamic portions pakai postponedState
 3. Dynamic content di-stream ke client saat sudah resolve
 4. React hydrate Suspense boundaries yang deferred
-```
 
 User melihat layout, header, konten utama — seketika. Lalu data personal atau realtime menyusul satu per satu via streaming.
 
@@ -141,7 +137,7 @@ Contoh di atas adalah halaman produk e-commerce. Deskripsi produk tampil seketik
 
 Paling simpel. Semua request ke Next.js server, server baca shell dari local cache, kirim, lalu stream dynamic content.
 
-```
+```markdown
 Client ──► Next.js Server
             ├─ kirim HTML shell (dari cache lokal)
             └─ stream dynamic content
@@ -153,7 +149,7 @@ Ini yang `next start` lakukan secara default. Tidak butuh setup tambahan, dan be
 
 Untuk latency optimal, static shell bisa di-cache di CDN edge. Dynamic content tetap dari origin.
 
-```
+```markdown
 Client ──► CDN Edge (~10ms)
             ├─ sajikan cached HTML shell
             └──► Origin Server
@@ -179,7 +175,7 @@ Ini relevan terutama kalau kamu implement custom caching layer atau CDN integrat
 
 ## Kapan Pakai PPR, Kapan Tidak
 
-### ✅ Cocok untuk PPR
+### Cocok untuk PPR
 
 | Halaman | Kenapa Cocok |
 |---|---|
@@ -188,7 +184,7 @@ Ini relevan terutama kalau kamu implement custom caching layer atau CDN integrat
 | Dashboard | Layout + struktur static, data widget dynamic |
 | Halaman beranda dengan personalisasi | Hero static, rekomendasi user dynamic |
 
-### ❌ Kurang Cocok untuk PPR
+### Kurang Cocok untuk PPR
 
 | Halaman | Kenapa Tidak Cocok |
 |---|---|

@@ -3,7 +3,7 @@
 import { useShortcut } from '@/hooks/useShortcut';
 import { updateQueryParams } from '@/lib/utils';
 import { Search } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { InputGroup, InputGroupAddon, InputGroupInput } from './ui/input-group';
 
@@ -13,8 +13,10 @@ type TProps = {
 
 export default function SearchInput({ debounceMs = 300 }: TProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentTitle = searchParams.get('title') ?? '';
   const inputRef = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(currentTitle);
 
   useShortcut('s', () => {
     inputRef.current?.focus();
@@ -22,11 +24,17 @@ export default function SearchInput({ debounceMs = 300 }: TProps) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push(updateQueryParams({ title: value }), { scroll: false });
+      const nextTitle = value.trim();
+
+      if (nextTitle === currentTitle) return;
+
+      router.replace(updateQueryParams({ title: nextTitle || null }), {
+        scroll: false,
+      });
     }, debounceMs);
 
     return () => clearTimeout(timer);
-  }, [value, debounceMs]);
+  }, [value, currentTitle, debounceMs, router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -36,6 +44,7 @@ export default function SearchInput({ debounceMs = 300 }: TProps) {
     <InputGroup className="w-full md:w-lg">
       <InputGroupInput
         ref={inputRef}
+        value={value}
         onChange={handleChange}
         placeholder="Search..."
       />

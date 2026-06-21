@@ -6,6 +6,14 @@ import LinkNode from '@/components/mdx/LinkNode';
 import ListItemNode from '@/components/mdx/ListItemNode';
 import ListNode from '@/components/mdx/ListNode';
 import Paragraph from '@/components/mdx/Paragraph';
+import {
+  TableNode,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeaderCell,
+  TableDataCell,
+} from '@/components/mdx/TableNode';
 import React from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -20,7 +28,7 @@ const inlineCodeStyle = {
   padding: '2px 4px',
   borderRadius: '4px',
   fontFamily: 'monospace',
-  fontSize: '0.875rem',
+  fontSize: '1rem',
   wordBreak: 'break-all' as const,
   overflowWrap: 'anywhere' as const,
 };
@@ -95,6 +103,12 @@ const renderers: Components = {
       {children}
     </blockquote>
   ),
+  table: ({ children }) => <TableNode>{children}</TableNode>,
+  thead: ({ children }) => <TableHead>{children}</TableHead>,
+  tbody: ({ children }) => <TableBody>{children}</TableBody>,
+  tr: ({ children }) => <TableRow>{children}</TableRow>,
+  th: ({ children }) => <TableHeaderCell>{children}</TableHeaderCell>,
+  td: ({ children }) => <TableDataCell>{children}</TableDataCell>,
 };
 
 const Markdown: React.FC<MarkdownProps> = ({ children }) => {

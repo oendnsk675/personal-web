@@ -37,6 +37,31 @@ export async function getMetadataBlogs(
   }
 }
 
+export async function getMetadataBlogsBySlugs(
+  slugs: string[]
+): Promise<{ slug: string; views: number; likes: number }[]> {
+  if (slugs.length === 0) {
+    return [];
+  }
+
+  try {
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .from('blogs')
+      .select('slug, views, likes')
+      .in('slug', slugs);
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getBlogBySlug(slug: string) {
   try {
     const supabase = await createClient();

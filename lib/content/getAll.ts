@@ -10,7 +10,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { BLOG_DIR, NOTE_DIR, PROJECT_DIR } from '../constants';
-import { getMetadataBlogs } from '../supabase/queries/blog';
+import { getMetadataBlogsBySlugs } from '../supabase/queries/blog';
 import { matchTitle } from '../utils';
 
 export async function getAllBlogs({
@@ -20,98 +20,83 @@ export async function getAllBlogs({
   sort = 'asc',
   sortBy = 'views',
 }: TPaginationQuery): Promise<TBlogPaginated> {
-  let data: TBlogMarkdown[] = [];
   const { title, topic } = filter;
 
+  const files = fs.readdirSync(BLOG_DIR);
+
+  let data = files
+    .map((filename) => {
+      const filePath = path.join(BLOG_DIR, filename);
+      const file = fs.readFileSync(filePath, 'utf-8');
+      const parsed = matter(file);
+      const frontmatter = parsed.data as TBlogFrontmatter;
+      const content = parsed.content;
+      const slug = filename.replace('.md', '');
+
+      if (title && !matchTitle(frontmatter.title, title)) {
+        return null;
+      }
+
+      if (topic && !frontmatter.categories.includes(topic)) {
+        return null;
+      }
+
+      return {
+        ...frontmatter,
+        slug,
+        content,
+      };
+    })
+    .filter(Boolean) as TBlogMarkdown[];
+
+  const metadata = await getMetadataBlogsBySlugs(data.map((blog) => blog.slug));
+  const metadataBySlug = new Map(metadata.map((item) => [item.slug, item]));
+
+  data = data.map((blog) => {
+    const meta = metadataBySlug.get(blog.slug);
+
+    return {
+      ...blog,
+      views: meta?.views ?? 0,
+      likes: meta?.likes ?? 0,
+    };
+  });
+
+  // --- ORDERING ---
   if (sortBy == 'views') {
-    const blogs = await getMetadataBlogs(limit, page, sort, sortBy);
-
-    data = blogs
-      .map(({ slug, views, likes }) => {
-        const filePath = path.join(BLOG_DIR, `${slug}.md`);
-
-        if (!fs.existsSync(filePath)) {
-          return null;
-        }
-
-        const file = fs.readFileSync(filePath, 'utf-8');
-        const parsed = matter(file);
-
-        const frontmatter = parsed.data as TBlogFrontmatter;
-
-        if (title && !matchTitle(frontmatter.title, title)) {
-          return null;
-        }
-
-        if (topic && !frontmatter.categories.includes(topic)) {
-          return null;
-        }
-
-        return {
-          ...frontmatter,
-          slug,
-          content: parsed.content,
-          views,
-          likes,
-        };
-      })
-      .filter(Boolean) as TBlogMarkdown[];
-  } else {
-    const files = fs.readdirSync(BLOG_DIR);
-
-    const blogs = files
-      .map((filename) => {
-        const filePath = path.join(BLOG_DIR, filename);
-        const file = fs.readFileSync(filePath, 'utf-8');
-        const parsed = matter(file);
-        const frontmatter = parsed.data as TBlogFrontmatter;
-        const content = parsed.content;
-        const slug = filename.replace('.md', '');
-
-        if (title && !matchTitle(frontmatter.title, title)) {
-          return null;
-        }
-
-        if (topic && !frontmatter.categories.includes(topic)) {
-          return null;
-        }
-
-        return {
-          ...frontmatter,
-          slug,
-          content,
-        };
-      })
-      .filter(Boolean) as TBlogMarkdown[];
-
-    // --- ORDERING ---
-    if (sortBy == 'title') {
-      data.sort((a, b) =>
-        sort === 'asc'
-          ? a.title.localeCompare(b.title)
-          : b.title.localeCompare(a.title),
-      );
-    } else if (sortBy == 'dates') {
-      data.sort((a, b) =>
-        sort === 'asc'
-          ? a.date.localeCompare(b.date)
-          : b.date.localeCompare(a.date),
-      );
-    }
-
-    // --- PAGINATION ---
-    const startIndex = (page - 1) * limit;
-    const endIndex = startIndex + limit;
-    data = blogs.slice(startIndex, endIndex);
+    data.sort((a, b) =>
+      sort === 'asc'
+        ? (a.views ?? 0) - (b.views ?? 0)
+        : (b.views ?? 0) - (a.views ?? 0),
+    );
+  } else if (sortBy == 'title') {
+    data.sort((a, b) =>
+      sort === 'asc'
+        ? a.title.localeCompare(b.title)
+        : b.title.localeCompare(a.title),
+    );
+  } else if (sortBy == 'dates') {
+    data.sort((a, b) =>
+      sort === 'asc'
+        ? a.date.localeCompare(b.date)
+        : b.date.localeCompare(a.date),
+    );
   }
+
+  const total = data.length;
+
+  // --- PAGINATION ---
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  data = data.slice(startIndex, endIndex);
 
   return {
     data,
     meta: {
       page,
       limit,
-      total: data.length, // bisa diganti count dari Supabase
-      totalPages: Math.ceil(data.length / limit),
+      total,
+      totalPages: Math.ceil(total / limit),
     },
   };
 }

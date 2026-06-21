@@ -8,8 +8,6 @@ categories: ['nextjs', 'web development', 'frontend', 'rendering']
 
 # Kenapa Static vs Dynamic Bukan Lagi Pilihan Biner di Next.js
 
----
-
 ## Introduction
 
 Kalau kamu pernah pakai Gatsby, Hugo, atau bahkan SvelteKit, pasti familiar sama pertanyaan klasik ini:

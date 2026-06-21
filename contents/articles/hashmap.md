@@ -1,12 +1,12 @@
 ---
 title: 'HashMap'
-description: ''
-categories: ['Python', 'DSA', 'Two Sum', 'Group Anagrams']
 date: 2026/06/09
+thumbnail: '/images/thumbnail/hashmap.webp'
+description: 'Mengenal konsep HashMap, penggunaan dict di Python, serta penerapannya untuk menyelesaikan Two Sum dan Group Anagrams secara efisien dengan mudah.'
+categories: ['Python', 'DSA', 'Two Sum', 'Group Anagrams']
 ---
 
 # Quick Explanation
-![HashMap](/images/thumbnail/hashmap.webp)
 HashMap adalah sebuah struktur data yang berbasis Hash Table, yang menyimpan data dalam bentuk key-value. dalam pemrograman Java HashMap dan HashTable merupakan instance yang berbeda, jadi pastikan makek HashMap yang lebih modern. lalu implementasi di python HashMap, biasanya kita menggunakan Dictionary untuk membuat hashtable, dan nantinya kita bisa melakukan beberapa hal seperti berikut.
 
 ### 1. Two Sum
