@@ -23,20 +23,20 @@ Step 1: Ambil nilai awal.
   - `divisor = 3`
 
 Step 2: Geser `divisor` ke kiri sampai nilainya mendekati `dividend` tetapi tidak melebihi `dividend`.
-  2. Geser `divisor` ke kiri sampai nilainya mendekati `dividend` tetapi tidak melebihi `dividend`.
+  - Geser `divisor` ke kiri sampai nilainya mendekati `dividend` tetapi tidak melebihi `dividend`.
 	  - `3 << 0 = 3`
 	  - `3 << 1 = 6`
 	  - `3 << 2 = 12` → terlalu besar karena melebihi 10.
-  3. Pakai nilai terbesar yang masih valid, yaitu `6`.
-  4. Kurangi `dividend` dengan nilai tersebut: `10 - 6 = 4`.
-  5. Tambahkan hasil pergeseran ke hasil akhir: `1 << 1 = 2`.
-  6. Ulangi proses yang sama untuk sisa `4`.
+  - Pakai nilai terbesar yang masih valid, yaitu `6`.
+  - Kurangi `dividend` dengan nilai tersebut: `10 - 6 = 4`.
+  - Tambahkan hasil pergeseran ke hasil akhir: `1 << 1 = 2`.
+  - Ulangi proses yang sama untuk sisa `4`.
 	  - `3 << 0 = 3`
 	  - `3 << 1 = 6` → terlalu besar karena melebihi 4.
-  7. Pakai nilai `3`, lalu kurangi sisa: `4 - 3 = 1`.
-  8. Tambahkan lagi ke hasil akhir: `2 + (1 << 0) = 3`.
-  9. Karena sisa `1` lebih kecil dari `divisor`, proses berhenti.
-  10. Hasil akhirnya adalah `3`.
+  - Pakai nilai `3`, lalu kurangi sisa: `4 - 3 = 1`.
+  - Tambahkan lagi ke hasil akhir: `2 + (1 << 0) = 3`.
+  - Karena sisa `1` lebih kecil dari `divisor`, proses berhenti.
+  - Hasil akhirnya adalah `3`.
 
 ## Example Code
 
