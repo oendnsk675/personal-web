@@ -1,11 +1,11 @@
 ---
 title: 'Leetcode 29: Divide Two Integers'
 date: 2026/06/14
-description: 'Hari ini aku belajar mengenai bit manipulation menggunakan Python. soal yang aku selesaikan menggunakan bit manipulation adalah soal dengan ID 29 Divide two integers.'
+description: 'notes ini merupakan catatan untuk memahami bit manipulation'
 categories: ['Python', 'DSA', 'Bit Manipulation']
 ---
 
-## Background
+# Background
 
 Hari ini aku belajar mengenai bit manipulation menggunakan Python. soal yang aku selesaikan menggunakan bit manipulation adalah soal dengan ID 29 Divide two integers.
 
@@ -13,7 +13,7 @@ Soal ini mengharuskan kita untuk membagi dua bilangan bulat tanpa menggunakan op
 
 Oleh karena itu disini kita harus memanfaatkan operasi bitwise untuk menyelesaikan masalah ini. Kita akan menggunakan pendekatan shift dan subtract untuk mendapatkan hasil pembagian.
 
-## Idea
+# Idea
 untuk menyelesaikan masalah ini, kita akan melakukan pergeseran bit (bit shifting) untuk menemukan hasil pembagian.
 
 Contoh membagi `10` dengan `3`:
@@ -38,7 +38,7 @@ Step 2: Geser `divisor` ke kiri sampai nilainya mendekati `dividend` tetapi tida
   - Karena sisa `1` lebih kecil dari `divisor`, proses berhenti.
   - Hasil akhirnya adalah `3`.
 
-## Example Code
+# Example Code
 
 ```python
 class Solution:
