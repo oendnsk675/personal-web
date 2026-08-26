@@ -2,7 +2,7 @@
 title: 'Leetcode 29: Divide Two Integers'
 description: 'notes ini merupakan catatan untuk memahami bit manipulation'
 categories: ['Python', 'DSA', 'Bit Manipulation']
-date: 2026/06/14
+date: 2026/08/25
 ---
 
 # Background

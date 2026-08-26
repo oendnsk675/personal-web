@@ -2,7 +2,7 @@
 title: 'Leetcode 78: Subsets'
 description: 'notes ini merupakan catatan untuk memahami bit manipulation'
 categories: ['Python', 'DSA', 'Bit Manipulation']
-date: 2026/06/14
+date: 2026/08/26
 ---
 
 # Background
