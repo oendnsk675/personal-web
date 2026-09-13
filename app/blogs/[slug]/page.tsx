@@ -1,12 +1,12 @@
 import BlogDetailBottomDivider from '@/components/blog/detail/blog-detail-bottom-divider';
 import BlogDetailComments from '@/components/blog/detail/blog-detail-comments';
 import BlogDetailContent from '@/components/blog/detail/blog-detail-content';
+import DetailTocLayout from '@/components/detail/detail-toc-layout';
 import BlogDetailHeroImage from '@/components/blog/detail/blog-detail-hero-image';
 import BlogDetailLike from '@/components/blog/detail/blog-detail-like';
 import BlogDetailMetaDivider from '@/components/blog/detail/blog-detail-meta-divider';
 import BlogDetailProfile from '@/components/blog/detail/blog-detail-profile';
 import BlogDetailTitle from '@/components/blog/detail/blog-detail-title';
-import BlogDetailToc from '@/components/blog/detail/blog-detail-toc';
 import { getDetailArticle } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
 import getTableOfContents from '@/lib/content/getTableOfContents';
@@ -57,14 +57,13 @@ const ArticlePage = async (props: any) => {
           slug={slug}
           views={blog?.views}
         />
-        <section className="flex gap-4 min-h-screen relative mb-48">
+        <DetailTocLayout toc={toc}>
           <BlogDetailContent
             content={article.content}
             slug={slug}
             title={article.title}
           />
-          <BlogDetailToc toc={toc} />
-        </section>
+        </DetailTocLayout>
         <BlogDetailLike defaultValue={blog?.likes} slug={slug} />
         <BlogDetailBottomDivider />
 

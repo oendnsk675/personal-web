@@ -1,4 +1,5 @@
 import HeaderLight from '@/components/blog/header-light';
+import DetailTocLayout from '@/components/detail/detail-toc-layout';
 import ProjectHeaderPattern from '@/components/pattern/project-header-pattern';
 import ProjectDetailBottomDivider from '@/components/projects/detail/project-detail-bottom-divider';
 import ProjectDetailComments from '@/components/projects/detail/project-detail-comments';
@@ -6,7 +7,6 @@ import ProjectDetailContent from '@/components/projects/detail/project-detail-co
 import ProjectDetailLike from '@/components/projects/detail/project-detail-like';
 import ProjectDetailMetaDivider from '@/components/projects/detail/project-detail-meta-divider';
 import ProjectDetailProfile from '@/components/projects/detail/project-detail-profile';
-import ProjectDetailToc from '@/components/projects/detail/project-detail-toc';
 import ProjectDetailTitle from '@/components/projects/detail/project-detail-title';
 import { getDetailProject } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
@@ -60,15 +60,14 @@ const ArticlePage = async (props: any) => {
           codeUrl={detailProject.links.code}
           liveUrl={detailProject.links.live}
         />
-        <section className="flex gap-4 min-h-screen relative mb-48">
+        <DetailTocLayout toc={toc}>
           <ProjectDetailContent
             content={detailProject.content}
             images={detailProject.images}
             slug={slug}
             title={detailProject.title}
           />
-          <ProjectDetailToc toc={toc} />
-        </section>
+        </DetailTocLayout>
         <ProjectDetailLike defaultValue={metadata?.likes} slug={slug} />
         <ProjectDetailBottomDivider />
 

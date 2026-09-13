@@ -1,12 +1,12 @@
 import NoteDetailBottomDivider from '@/components/notes/detail/note-detail-bottom-divider';
 import NoteDetailComments from '@/components/notes/detail/note-detail-comments';
 import NoteDetailContent from '@/components/notes/detail/note-detail-content';
+import DetailTocLayout from '@/components/detail/detail-toc-layout';
 import NoteDetailHero from '@/components/notes/detail/note-detail-hero';
 import NoteDetailLike from '@/components/notes/detail/note-detail-like';
 import NoteDetailMetaDivider from '@/components/notes/detail/note-detail-meta-divider';
 import NoteDetailProfile from '@/components/notes/detail/note-detail-profile';
 import NoteDetailTitle from '@/components/notes/detail/note-detail-title';
-import NoteDetailToc from '@/components/notes/detail/note-detail-toc';
 import { getDetailNote } from '@/lib/content/getDetail';
 import getSlugs from '@/lib/content/getSlugs';
 import getTableOfContents from '@/lib/content/getTableOfContents';
@@ -56,14 +56,13 @@ const NotesPage = async (props: any) => {
           likes={metadata?.likes}
           slug={slug}
         />
-        <section className="flex gap-4 min-h-screen relative mb-48">
+        <DetailTocLayout toc={toc}>
           <NoteDetailContent
             content={notes.content}
             slug={slug}
             title={notes.title}
           />
-          <NoteDetailToc toc={toc} />
-        </section>
+        </DetailTocLayout>
         <NoteDetailLike defaultValue={metadata?.likes} slug={slug} />
         <NoteDetailBottomDivider />
 
