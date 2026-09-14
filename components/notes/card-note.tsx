@@ -27,7 +27,7 @@ export function CardNote({ note }: { note: TNoteMarkdown }) {
 
         {/* title and views */}
         <div className="text content p-4">
-          <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
+          <h1 className="font-bold text-xl md:text-xl text-gray-50 relative z-10">
             {note.title}
           </h1>
           <p className="font-normal text-sm text-gray-50 relative z-10 my-4">

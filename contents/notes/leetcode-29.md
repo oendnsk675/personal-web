@@ -1,6 +1,6 @@
 ---
 title: 'Leetcode 29: Divide Two Integers'
-description: 'notes ini merupakan catatan untuk memahami bit manipulation'
+description: ''
 categories: ['Python', 'DSA', 'Bit Manipulation']
 date: 2026/08/25
 ---
