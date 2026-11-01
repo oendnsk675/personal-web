@@ -2,7 +2,7 @@
 title: 'Leetcode 205: Isomorphic Strings'
 description: 'Memahami pola isomorphic strings dan solusi menggunakan hash table di Python.'
 categories: ['Python', 'DSA', 'Hash Table']
-date: 2026/08/25
+date: 2026/11/01
 ---
 
 # Background
